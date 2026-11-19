@@ -67,6 +67,53 @@ python scripts/build_site.py             # 只重建站点
 
 ---
 
+## 每周自动运行
+
+三种方式，按省心程度排序：
+
+### 方式 1：双击批处理（最省事）
+
+双击仓库根目录的 **`更新热点.bat`**。它会依次完成抓取、建站、提交、推送，窗口停住让你确认结果。
+
+> ⚠️ **这个文件必须保持纯 ASCII**。Windows 的 cmd 按 GBK 代码页读取 `.bat`，文件里只要出现中文，就会把后面的命令行截断，报出 `'OENCODING' 不是内部或外部命令` 这类错误。改它的时候注释也请用英文。
+
+### 方式 2：注册 Windows 计划任务（无人值守）
+
+```bash
+python scripts/setup_schedule.py                  # 每周五 09:00
+python scripts/setup_schedule.py --time 21:30     # 改时间
+python scripts/setup_schedule.py --day SAT --time 10:00
+python scripts/setup_schedule.py --status         # 查看
+python scripts/setup_schedule.py --remove         # 删除
+```
+
+如果提示权限不足或创建失败，用图形界面手动配置（一次搞定，永久生效）：
+
+1. 按 `Win + R`，输入 `taskschd.msc`，回车
+2. 右侧「创建基本任务」，名称填 `HotspotRadarWeekly`
+3. 触发器选「每周」，勾选星期五，时间填 `09:00`
+4. 操作选「启动程序」：
+   - 程序或脚本：`C:\Users\<你的用户名>\AppData\Local\Programs\Python\Python314\python.exe`
+     （用 `where python` 可以查到确切路径）
+   - 添加参数：`scripts\update.py`
+   - 起始于：**仓库的完整路径**（这一步不能漏，否则找不到脚本）
+5. 完成后在任务列表里右键 → 运行，测试一次
+
+**两个限制要知道：**
+
+- 计划任务只在**电脑开机且已登录**时执行。周五没开机，那周就跳过，下次打开 `更新热点.bat` 手动补一次。
+- 自动推送依赖已保存的凭据。**第一次请手动推送一次**，让 Git Credential Manager 记住令牌；之后才能免密推送。否则任务会在 `git push` 那一步卡住。
+
+### 方式 3：只手动跑一条命令
+
+```bash
+python scripts/update.py
+```
+
+适合不想装任何计划任务的情况。每周记得跑一次即可。
+
+---
+
 ## 第一次配置（只做一次）
 
 **1. 在 GitHub 上建一个公开仓库**（Pages 免费版需要公开仓库）
