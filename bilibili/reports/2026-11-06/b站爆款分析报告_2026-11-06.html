@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B站爆款内容分析报告</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#f5f6f7;color:#222;line-height:1.6}
+.wrap{max-width:920px;margin:0 auto;padding:28px 18px 60px}
+header{background:linear-gradient(135deg,#FB7299,#ff9bbb);color:#fff;border-radius:16px;padding:30px 28px;margin-bottom:22px}
+header h1{font-size:26px;margin-bottom:8px}
+header p{opacity:.92;font-size:14px}
+.cards{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.card{flex:1;min-width:160px;background:#fff;border-radius:14px;padding:18px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.card .n{font-size:26px;font-weight:800;color:#FB7299}
+.card .l{font-size:13px;color:#888;margin-top:4px}
+section{background:#fff;border-radius:14px;padding:24px;margin-bottom:20px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+section h2{font-size:18px;margin-bottom:4px;color:#222}
+section .desc{font-size:13px;color:#999;margin-bottom:16px}
+.chart{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:9px 8px;border-bottom:1px solid #f0f0f0;text-align:center}
+th{background:#fafafa;color:#666;font-weight:600}
+.note{background:#fff7fb;border-left:4px solid #FB7299;border-radius:0 10px 10px 0;padding:14px 18px;margin:14px 0;font-size:14px}
+.note b{color:#FB7299}
+.tips li{margin:10px 0;list-style:none;padding-left:26px;position:relative}
+.tips li:before{content:"▸";position:absolute;left:6px;color:#23ADE5;font-weight:700}
+.tag{display:inline-block;background:#fdeef4;color:#FB7299;border-radius:6px;padding:2px 8px;font-size:12px;margin:3px}
+</style></head>
+<body><div class="wrap">
+
+<header>
+  <h1>📊 B站爆款内容分析报告</h1>
+  <p>数据抓取于 2026-11-06 18:49 · 样本 = 300 条全站热门 + 全站/游戏/科技/动画/影视 分区排行榜 · 全部来自公开接口，无需登录</p>
+</header>
+
+<div class="cards">
+  <div class="card"><div class="n">300</div><div class="l">分析样本（条）</div></div>
+  <div class="card"><div class="n">17.4′</div><div class="l">平均视频时长</div></div>
+  <div class="card"><div class="n">6.2%</div><div class="l">点赞率中位（每百播放）</div></div>
+  <div class="card"><div class="n">1.3天</div><div class="l">上榜视频发布距今中位（热点新鲜度）</div></div>
+</div>
+
+<section>
+  <h2>1 · 哪些内容最容易爆？</h2>
+  <div class="desc">下图按二级分区统计热门榜视频数量。游戏类（电竞/单机/手机/网游）合计占比最高，"日常/生活"是最大单一类目。</div>
+  <div class="chart"><svg width="620" height="480" viewBox="0 0 620 480" style="max-width:100%"><g transform="translate(0,0)"><text x="0" y="12.0" dominant-baseline="middle" font-size="12.5" fill="#333">日常</text><rect x="130" y="3" width="440" height="18" rx="3" fill="#FB7299"/><text x="576" y="12.0" dominant-baseline="middle" font-size="11.5" fill="#777">59</text></g><g transform="translate(0,32)"><text x="0" y="12.0" dominant-baseline="middle" font-size="12.5" fill="#333">单机游戏</text><rect x="130" y="3" width="186" height="18" rx="3" fill="#FB7299"/><text x="322" y="12.0" dominant-baseline="middle" font-size="11.5" fill="#777">25</text></g><g transform="translate(0,64)"><text x="0" y="12.0" dominant-baseline="middle" font-size="12.5" fill="#333">手机游戏</text><rect x="130" y="3" width="157" height="18" rx="3" fill="#FB7299"/><text x="293" y="12.0" dominant-baseline="middle" font-size="11.5" fill="#777">21</text></g><g transform="translate(0,96)"><text x="0" y="12.0" dominant-baseline="middle" font-size="12.5" fill="#333">网络游戏</text><rect x="130" y="3" width="119" height="18" rx="3" fill="#FB7299"/><text x="255" y="12.0" dominant-baseline="middle" font-size="11.5" fill="#777">16</text></g><g transform="translate(0,128)"><text x="0" y="12.0" dominant-baseline="middle" font-size="12.5" fill="#333">搞笑</text><rect x="130" y="3" width="104" height="18" rx="3" fill="#FB7299"/><text x="240" y="12.0" dominant-baseline="middle" font-size="11.5" fill="#777">14</text></g><g transform="translate(0,160)"><text x="0" y="12.0" dominant-baseline="middle" font-size="12.5" fill="#333">电子竞技</text><rect x="130" y="3" width="97" height="18" rx="3" fill="#FB7299"/><text x="233" y="12.0" dominant-baseline="middle" font-size="11.5" fill="#777">13</text></g><g transform="translate(0,192)"><text x="0" y="12.0" dominant-baseline="middle" font-size="12.5" fill="#333">影视剪辑</text><rect x="130" y="3" width="97" height="18" rx="3" fill="#FB7299"/><text x="233" y="12.0" dominant-baseline="middle" font-size="11.5" fill="#777">13</text></g><g transform="translate(0,224)"><text x="0" y="12.0" dominant-baseline="middle" font-size="12.5" fill="#333">人文历史</text><rect x="130" y="3" width="67" height="18" rx="3" fill="#FB7299"/><text x="203" y="12.0" dominant-baseline="middle" font-size="11.5" fill="#777">9</text></g><g transform="translate(0,256)"><text x="0" y="12.0" dominant-baseline="middle" font-size="12.5" fill="#333">影视杂谈</text><rect x="130" y="3" width="67" height="18" rx="3" fill="#FB7299"/><text x="203" y="12.0" dominant-baseline="middle" font-size="11.5" fill="#777">9</text></g><g transform="translate(0,288)"><text x="0" y="12.0" dominant-baseline="middle" font-size="12.5" fill="#333">同人·手书</text><rect x="130" y="3" width="60" height="18" rx="3" fill="#FB7299"/><text x="196" y="12.0" dominant-baseline="middle" font-size="11.5" fill="#777">8</text></g><g transform="translate(0,320)"><text x="0" y="12.0" dominant-baseline="middle" font-size="12.5" fill="#333">GMV</text><rect x="130" y="3" width="45" height="18" rx="3" fill="#FB7299"/><text x="181" y="12.0" dominant-baseline="middle" font-size="11.5" fill="#777">6</text></g><g transform="translate(0,352)"><text x="0" y="12.0" dominant-baseline="middle" font-size="12.5" fill="#333">出行</text><rect x="130" y="3" width="45" height="18" rx="3" fill="#FB7299"/><text x="181" y="12.0" dominant-baseline="middle" font-size="11.5" fill="#777">6</text></g><g transform="translate(0,384)"><text x="0" y="12.0" dominant-baseline="middle" font-size="12.5" fill="#333">综合</text><rect x="130" y="3" width="45" height="18" rx="3" fill="#FB7299"/><text x="181" y="12.0" dominant-baseline="middle" font-size="11.5" fill="#777">6</text></g><g transform="translate(0,416)"><text x="0" y="12.0" dominant-baseline="middle" font-size="12.5" fill="#333">美食侦探</text><rect x="130" y="3" width="37" height="18" rx="3" fill="#FB7299"/><text x="173" y="12.0" dominant-baseline="middle" font-size="11.5" fill="#777">5</text></g><g transform="translate(0,448)"><text x="0" y="12.0" dominant-baseline="middle" font-size="12.5" fill="#333">汽车生活</text><rect x="130" y="3" width="30" height="18" rx="3" fill="#FB7299"/><text x="166" y="12.0" dominant-baseline="middle" font-size="11.5" fill="#777">4</text></g></svg></div>
+  <div class="note">💡 <b>规律：</b>热门榜是"游戏 + 日常/生活 + 搞笑/影视二创"三足鼎立。游戏靠赛事与二次元PV，生活靠共鸣与治愈，搞笑靠情绪释放。想入局，优先从这三类里找一个你能持续产出的切口。</div>
+</section>
+
+<section>
+  <h2>2 · 视频做多长合适？</h2>
+  <div class="desc">时长分布相当均衡，并非越短越好——长视频（>10min）也占了三分之一。</div>
+  <div class="chart"><svg width="460" height="34" viewBox="0 0 460 34" style="max-width:100%"><rect x="0" y="0" width="167" height="34" fill="#FB7299"/><text x="84" y="21" text-anchor="middle" font-size="12" fill="#fff">短视频 <3min 109</text><rect x="167" y="0" width="143" height="34" fill="#23ADE5"/><text x="238" y="21" text-anchor="middle" font-size="12" fill="#fff">中视频 3-10min 93</text><rect x="310" y="0" width="150" height="34" fill="#FFB027"/><text x="385" y="21" text-anchor="middle" font-size="12" fill="#fff">长视频 >10min 98</text></svg><div style="font-size:12px;color:#888;margin-top:6px">共 300 条 · 平均时长 17.4 分钟</div></div>
+  <div class="note">💡 <b>规律：</b>短视频（<3min）负责"刷到就点"，占 36%；但长视频（>10min）仍有 33%，说明<strong>深度/故事型内容照样能爆</strong>。建议新手用短视频试水、用中长视频立人设，两条腿走路。</div>
+</section>
+
+<section>
+  <h2>3 · 用户看完会怎么互动？</h2>
+  <div class="desc">互动率中位（仅统计播放>1000 的视频，避免新片干扰）。</div>
+  <div class="chart" style="display:flex;justify-content:center"><svg width="460" height="240" viewBox="0 0 460 240" style="max-width:100%"><g><rect x="21" y="16" width="51" height="190" rx="3" fill="#FB7299"/><text x="46" y="10" text-anchor="middle" font-size="11.5" fill="#333">6.2%</text><text x="46" y="228" text-anchor="middle" font-size="11.5" fill="#666">点赞</text></g><g><rect x="113" y="172" width="51" height="34" rx="3" fill="#23ADE5"/><text x="138" y="166" text-anchor="middle" font-size="11.5" fill="#333">1.1%</text><text x="138" y="228" text-anchor="middle" font-size="11.5" fill="#666">收藏</text></g><g><rect x="205" y="187" width="51" height="19" rx="3" fill="#FFB027"/><text x="230" y="181" text-anchor="middle" font-size="11.5" fill="#333">0.6%</text><text x="230" y="228" text-anchor="middle" font-size="11.5" fill="#666">投币</text></g><g><rect x="297" y="198" width="51" height="8" rx="3" fill="#7ED321"/><text x="322" y="192" text-anchor="middle" font-size="11.5" fill="#333">0.3%</text><text x="322" y="228" text-anchor="middle" font-size="11.5" fill="#666">分享</text></g><g><rect x="389" y="202" width="51" height="4" rx="3" fill="#9B59B6"/><text x="414" y="196" text-anchor="middle" font-size="11.5" fill="#333">0.1%</text><text x="414" y="228" text-anchor="middle" font-size="11.5" fill="#666">弹幕</text></g></svg></div>
+  <div class="note">💡 <b>规律：</b>点赞率 ~6.2%（基准线），但<strong>收藏率（1.1%）明显高于投币率（0.6%）</strong>——观众更愿意"存起来以后用"，而不是"打钱"。做<strong>有用、可复盘、可收藏</strong>的内容（盘点/教程/清单），比纯娱乐更容易被长期推流。</div>
+</section>
+
+<section>
+  <h2>4 · 标题怎么起？</h2>
+  <div class="desc">对 300 条热门标题的统计。</div>
+  <div class="chart">
+    <div style="display:flex;gap:18px;flex-wrap:wrap">
+      <div style="flex:1;min-width:150px"><div style="font-size:13px;color:#666;margin-bottom:4px">平均标题长度</div><div style="font-size:24px;font-weight:800;color:#FB7299">22 字</div></div>
+      <div style="flex:1;min-width:150px"><div style="font-size:13px;color:#666;margin-bottom:4px">含 ！/？ 情绪符</div><div style="font-size:24px;font-weight:800;color:#23ADE5">41%</div></div>
+      <div style="flex:1;min-width:150px"><div style="font-size:13px;color:#666;margin-bottom:4px">含 【】《》 强调符</div><div style="font-size:24px;font-weight:800;color:#FFB027">35%</div></div>
+      <div style="flex:1;min-width:150px"><div style="font-size:13px;color:#666;margin-bottom:4px">含 数字/年份</div><div style="font-size:24px;font-weight:800;color:#7ED321">25%</div></div>
+    </div>
+  </div>
+  <div class="note">💡 <b>规律：</b>爆款标题平均 22 字，近一半带情绪符、超三成带【】强调框。好标题≈<strong>"情绪/疑问 + 具体信息（数字、时间、人名）+ 视觉强调"</strong>。别做"低调标题党"，要"信息明确的强情绪"。</div>
+</section>
+
+<section>
+  <h2>5 · 当前最火的 10 条</h2>
+  <div class="desc">按播放量排序（点击标题可跳转原视频）。</div>
+  <table>
+    <tr><th>#</th><th style="text-align:left">标题</th><th>分区</th><th>播放</th><th>点赞</th><th>UP主</th></tr>
+    <tr><td style="color:#FB7299;font-weight:700">1</td><td style="text-align:left"><a href="https://www.bilibili.com/video/av117554982946352" target="_blank" style="color:#23ADE5;text-decoration:none">【2026全球总决赛】11月4日 TES vs IG</a></td><td>电子竞技</td><td>953万</td><td>5.7万</td><td>哔哩哔哩英雄联盟赛事</td></tr><tr><td style="color:#FB7299;font-weight:700">2</td><td style="text-align:left"><a href="https://www.bilibili.com/video/av117544463635833" target="_blank" style="color:#23ADE5;text-decoration:none">【只对你有感觉】|“【恋爱の小曲】”</a></td><td>乐评盘点</td><td>871万</td><td>36.8万</td><td>蛋某人音乐</td></tr><tr><td style="color:#FB7299;font-weight:700">3</td><td style="text-align:left"><a href="https://www.bilibili.com/video/av117550352501356" target="_blank" style="color:#23ADE5;text-decoration:none">抽象新闻：10月人类迷惑行为大赏（下）</a></td><td>搞笑</td><td>581万</td><td>12.3万</td><td>我是M菌</td></tr><tr><td style="color:#FB7299;font-weight:700">4</td><td style="text-align:left"><a href="https://www.bilibili.com/video/av117551963118258" target="_blank" style="color:#23ADE5;text-decoration:none">《这是我儿子？》</a></td><td>搞笑</td><td>538万</td><td>25.2万</td><td>张小伙玩配音</td></tr><tr><td style="color:#FB7299;font-weight:700">5</td><td style="text-align:left"><a href="https://www.bilibili.com/video/av117566290790345" target="_blank" style="color:#23ADE5;text-decoration:none">【2026全球总决赛】11月6日 DK vs BLG</a></td><td>电子竞技</td><td>515万</td><td>3.7万</td><td>哔哩哔哩英雄联盟赛事</td></tr><tr><td style="color:#FB7299;font-weight:700">6</td><td style="text-align:left"><a href="https://www.bilibili.com/video/av117552902576167" target="_blank" style="color:#23ADE5;text-decoration:none">只有站对角度，才能看见消失的孩子！</a></td><td>人文历史</td><td>493万</td><td>29.1万</td><td>艺术有毒</td></tr><tr><td style="color:#FB7299;font-weight:700">7</td><td style="text-align:left"><a href="https://www.bilibili.com/video/av117536460969774" target="_blank" style="color:#23ADE5;text-decoration:none">这！绝对不是儿童餐！</a></td><td>汪星人</td><td>476万</td><td>23.0万</td><td>保安迷弟</td></tr><tr><td style="color:#FB7299;font-weight:700">8</td><td style="text-align:left"><a href="https://www.bilibili.com/video/av117551375843429" target="_blank" style="color:#23ADE5;text-decoration:none">《崩坏：因缘精灵》幸福PV：缘汽一下</a></td><td>手机游戏</td><td>454万</td><td>15.7万</td><td>崩坏因缘精灵</td></tr><tr><td style="color:#FB7299;font-weight:700">9</td><td style="text-align:left"><a href="https://www.bilibili.com/video/av117552214706966" target="_blank" style="color:#23ADE5;text-decoration:none">这个世界上根本没有这样的眼镜</a></td><td>小剧场</td><td>454万</td><td>6.2万</td><td>智勇双全富贵君</td></tr><tr><td style="color:#FB7299;font-weight:700">10</td><td style="text-align:left"><a href="https://www.bilibili.com/video/av117544698513187" target="_blank" style="color:#23ADE5;text-decoration:none">一条没下巴的鱼杀穿奥陶纪？</a></td><td>动物二创</td><td>414万</td><td>18.4万</td><td>我们都是社畜</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>6 · 爆款规律一句话总结</h2>
+  <div style="font-size:14px">
+    <span class="tag">赛道集中</span><span class="tag">游戏/生活/搞笑三足鼎立</span>
+    <span class="tag">长度两极</span><span class="tag">短试水·长立人设</span>
+    <span class="tag">收藏>投币</span><span class="tag">做"有用"的内容</span>
+    <span class="tag">强情绪标题</span><span class="tag">22字·带符号</span>
+    <span class="tag">热点窗口短</span><span class="tag">上榜中位仅 1.3 天</span>
+  </div>
+  <div class="note">⚡ <b>最关键的一条：</b>上榜视频发布距今中位数仅 <b>1.3 天</b>。B站热门榜轮换极快，<strong>追热点要在 48 小时内出内容</strong>，错过窗口基本没戏。</div>
+</section>
+
+<section>
+  <h2>7 · 给你的选题行动清单</h2>
+  <ul class="tips" style="font-size:14px;color:#333">
+    <li><b>选赛道：</b>从「游戏二创 / 日常治愈 / 搞笑盘点 / 知识科普」里挑一个你真感兴趣、能持续做的，别贪多。</li>
+    <li><b>定形式：</b>先用 1–3 分钟短视频追热点试水，再用 8–12 分钟中长视频做"有观点/有信息量"的内容立人设。</li>
+    <li><b>练标题：</b>套公式——「情绪词/疑问 + 具体数字或时间点 +【】强调」。例：<i>"3 分钟看懂 XX：为什么年轻人都在聊它？【深度】"</i></li>
+    <li><b>提收藏：</b>每期都想清楚"观众为什么要存"——清单、教程、对比表、避坑指南，都是高收藏形态。</li>
+    <li><b>拼速度：</b>刷到热点立刻记下来，48 小时内出片；热点类内容不求完美，求快和角度新。</li>
+    <li><b>看数据：</b>每周回看自己视频的点赞率/收藏率，对标这份基准（点赞 ~6%、收藏 ~1%），低于均值就调标题或开头。</li>
+  </ul>
+</section>
+
+<div style="text-align:center;color:#bbb;font-size:12px;margin-top:30px">
+  本报告由 WorkBuddy 基于 B站公开排行榜/热门接口自动生成 · 数据仅反映抓取时点，不构成流量承诺
+</div>
+
+</div></body></html>

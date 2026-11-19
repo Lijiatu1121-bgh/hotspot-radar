@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知乎有价值议题分析报告 · 2026-11-19</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#f4f6f8;color:#1a1a1a;line-height:1.68}
+.wrap{max-width:960px;margin:0 auto;padding:28px 18px 70px}
+header{background:linear-gradient(135deg,#0084FF,#4da3ff);color:#fff;border-radius:16px;padding:32px 30px;margin-bottom:22px}
+header h1{font-size:26px;margin-bottom:8px;letter-spacing:.5px}
+header p{opacity:.93;font-size:13.5px}
+.cards{display:flex;gap:13px;flex-wrap:wrap;margin-bottom:24px}
+.card{flex:1;min-width:150px;background:#fff;border-radius:14px;padding:17px 18px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.card .n{font-size:25px;font-weight:800;color:#0084FF}
+.card .l{font-size:12.5px;color:#888;margin-top:3px;line-height:1.4}
+section{background:#fff;border-radius:14px;padding:26px;margin-bottom:18px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+section h2{font-size:18px;margin-bottom:4px}
+section h2 .num{color:#0084FF;margin-right:6px}
+section .desc{font-size:13px;color:#8a94a0;margin-bottom:16px}
+.chart{overflow-x:auto;margin:6px 0}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:9px 8px;border-bottom:1px solid #f1f3f5;text-align:center}
+th{background:#fafbfc;color:#666;font-weight:600;font-size:12.5px}
+.note{background:#f0f7ff;border-left:4px solid #0084FF;border-radius:0 10px 10px 0;padding:14px 18px;margin:14px 0;font-size:13.8px}
+.note b{color:#0066cc}
+.icard{border:1px solid #e8edf2;border-radius:12px;padding:18px 20px;margin-bottom:14px;background:#fff}
+.ihead{display:flex;gap:10px;align-items:flex-start;margin-bottom:9px}
+.irank{flex:0 0 30px;font-size:15px;font-weight:800;color:#c8d3de;line-height:1.5}
+.ititle{font-size:15.5px;font-weight:700;color:#111;text-decoration:none;line-height:1.45}
+.ititle:hover{color:#0084FF}
+.imeta{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-bottom:13px;font-size:12px}
+.pill{display:inline-block;border-radius:6px;padding:2px 8px;font-size:11.5px;white-space:nowrap}
+.p-blue{background:#e8f3ff;color:#0066cc}
+.p-gray{background:#f0f2f5;color:#5c6b7a}
+.p-score{background:#eafaf0;color:#12864b;font-weight:700}
+.p-warn{background:#fff2e8;color:#c25b1a}
+.heat{color:#9aa5b1;font-size:11.5px}
+.iblock{background:#fafbfc;border-radius:9px;padding:12px 14px;margin-bottom:11px}
+.iblock p{font-size:13.5px;color:#33414f}
+.iquote{background:#f7fbff;border-radius:0 9px 9px 0;border-left:3px solid #9dc7ff;padding:11px 15px}
+.iquote p{font-size:12.8px;color:#5c6b7a;line-height:1.62}
+.ilabel{font-size:11.5px;font-weight:700;color:#8a94a0;letter-spacing:.4px;margin-bottom:6px;text-transform:uppercase}
+.igrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:11px}
+.ilist{list-style:none;font-size:13px;color:#41505f}
+.ilist li{position:relative;padding-left:14px;margin:5px 0;line-height:1.55}
+.ilist li:before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:#9dc7ff}
+.ifoot{font-size:11.5px;color:#9aa5b1;border-top:1px dashed #eaeff4;padding-top:9px}
+.ifoot b{color:#5c6b7a}
+.domcard{border-left:3px solid #0084FF;padding:2px 0 2px 14px;margin-bottom:16px}
+.domcard h4{font-size:14.5px;margin-bottom:5px}
+.domcard h4 span{font-weight:400;color:#8a94a0;font-size:12px;margin-left:6px}
+.domcard p{font-size:13px;color:#4a5a6a}
+.domcard .q{font-size:12.5px;color:#c25b1a;margin-top:6px}
+.tips li{margin:9px 0;list-style:none;padding-left:24px;position:relative;font-size:13.8px}
+.tips li:before{content:"▸";position:absolute;left:4px;color:#0084FF;font-weight:700}
+.mono{font-family:ui-monospace,Consolas,monospace;background:#f5f7f9;border-radius:5px;padding:1px 5px;font-size:12px}
+@media(max-width:640px){.igrid{grid-template-columns:1fr}}
+</style></head>
+<body><div class="wrap">
+
+<header>
+  <h1>知乎有价值议题分析报告</h1>
+  <p>抓取于 2026-11-19 11:57:19 · 热榜 30 条 + 知乎日报 4 条 ·
+  已剔除营销/八卦/情绪类 4 条，保留 25 条可分析议题 ·
+  全部来自公开接口，不涉及账号登录</p>
+</header>
+
+<div class="cards">
+  <div class="card"><div class="n">25</div><div class="l">有价值议题<br>（筛后保留）</div></div>
+  <div class="card"><div class="n">17%</div><div class="l">热搜被剔除比例<br>（营销/八卦/情绪）</div></div>
+  <div class="card"><div class="n">53</div><div class="l">保留议题平均价值分<br>（满分 100）</div></div>
+  <div class="card"><div class="n">11</div><div class="l">覆盖知识领域</div></div>
+</div>
+
+<section>
+  <h2><span class="num">1</span>先剔除：这 5 条为什么不算「有价值」</h2>
+  <div class="desc">热榜是流量榜，不是知识榜。剔除分两道：<b>硬剔除</b>（规则命中营销/八卦/情绪/琐事）、<b>软剔除</b>（价值分不足 30，虽不低俗但拆不出可验证的东西）。每条都标了依据，可逐条复核——如果你觉得某条被误杀，说明规则该调。</div>
+
+  <div style="font-size:12.5px;font-weight:700;color:#8a94a0;margin:14px 0 6px;letter-spacing:.4px">硬剔除 · 4 条</div>
+  <table>
+    <tr><th style="text-align:left">被剔除条目</th><th style="width:110px">判定</th><th style="text-align:left;width:34%">触发词</th></tr>
+    <tr><td style="text-align:left;color:#666">如何评价游戏《侠盗猎车手VI》（GTA6），它到底好不好玩？</td><td><span class="pill p-warn">消费测评</span></td><td style="text-align:left;color:#aaa;font-size:12px">好不好玩</td></tr><tr><td style="text-align:left;color:#666">电视剧《甄嬛传》中，为什么连宫女都敢欺负安陵容，却没人敢欺负叶澜依呢？</td><td><span class="pill p-warn">娱乐八卦</span></td><td style="text-align:left;color:#aaa;font-size:12px">电视剧</td></tr><tr><td style="text-align:left;color:#666">你认为吃着最过瘾的家常菜是什么？</td><td><span class="pill p-warn">生活琐事</span></td><td style="text-align:left;color:#aaa;font-size:12px">家常菜</td></tr><tr><td style="text-align:left;color:#666">如何解决在比自己差的人面前有优越感，在看到比自己优秀的人又会自卑这个问题？</td><td><span class="pill p-warn">情感树洞</span></td><td style="text-align:left;color:#aaa;font-size:12px">自卑、优越感</td></tr>
+  </table>
+
+  <div style="font-size:12.5px;font-weight:700;color:#8a94a0;margin:16px 0 6px;letter-spacing:.4px">软剔除 · 1 条</div>
+  <table>
+    <tr><th style="text-align:left">被剔除条目</th><th style="width:110px">判定</th><th style="text-align:left;width:34%">原因</th></tr>
+    <tr><td style="text-align:left;color:#666">一个人会做几个菜？</td><td><span class="pill p-warn">价值分不足</span></td><td style="text-align:left;color:#aaa;font-size:12px">29 分 · 归类「医学与健康」但缺乏可验证的知识底盘</td></tr>
+  </table>
+
+  <div class="note">💡 <b>判定标准（写在前面，避免黑箱）：</b>
+    营销导购 = 指向购买行为；娱乐八卦 = 讨论对象是明星私生活或影视剧情；
+    情感树洞 = 无可验证事实、只讨论个人感受；生活琐事 = 经验性日常，无知识增量。
+    四类共同点：<b>看完之后你无法获得任何可迁移的判断力</b>。
+    软剔除则是「有讨论、但讨论不出硬东西」——留着会稀释报告价值。</div>
+</section>
+
+<section>
+  <h2><span class="num">2</span>热度 ≠ 价值：一张图看清</h2>
+  <div class="desc">横轴是<b>热度排名</b>（左冷右热），纵轴是<b>价值分</b>，点越大表示回答越多（争论越激烈）。两条虚线是中位分割线，把议题分成四个象限。</div>
+  <div class="chart"><svg width="680" height="380" viewBox="0 0 680 380" style="max-width:100%"><line x1="54" y1="334" x2="658" y2="334" stroke="#eef0f2"/><text x="46" y="334" text-anchor="end" dominant-baseline="middle" font-size="11" fill="#9aa5b1">0</text><line x1="54" y1="256" x2="658" y2="256" stroke="#eef0f2"/><text x="46" y="256" text-anchor="end" dominant-baseline="middle" font-size="11" fill="#9aa5b1">25</text><line x1="54" y1="178" x2="658" y2="178" stroke="#eef0f2"/><text x="46" y="178" text-anchor="end" dominant-baseline="middle" font-size="11" fill="#9aa5b1">50</text><line x1="54" y1="100" x2="658" y2="100" stroke="#eef0f2"/><text x="46" y="100" text-anchor="end" dominant-baseline="middle" font-size="11" fill="#9aa5b1">75</text><line x1="54" y1="22" x2="658" y2="22" stroke="#eef0f2"/><text x="46" y="22" text-anchor="end" dominant-baseline="middle" font-size="11" fill="#9aa5b1">100</text><line x1="54" y1="170" x2="658" y2="170" stroke="#b9c6d3" stroke-dasharray="5 4"/><line x1="356" y1="22" x2="356" y2="334" stroke="#b9c6d3" stroke-dasharray="5 4"/><text x="64" y="36" text-anchor="start" font-size="11.5" font-weight="700" fill="#1a7f37" opacity="0.72">冷门但有料 · 套利区</text><text x="648" y="36" text-anchor="end" font-size="11.5" font-weight="700" fill="#0066cc" opacity="0.72">又热又有料</text><text x="64" y="326" text-anchor="start" font-size="11.5" font-weight="700" fill="#9aa5b1" opacity="0.72">冷且空</text><text x="648" y="326" text-anchor="end" font-size="11.5" font-weight="700" fill="#c25b1a" opacity="0.72">热但空</text><circle cx="646" cy="106" r="10.2" fill="#0084FF" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="380" cy="116" r="8.5" fill="#0084FF" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="453" cy="125" r="5.4" fill="#0084FF" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="549" cy="134" r="5.3" fill="#0084FF" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="235" cy="134" r="6.2" fill="#0084FF" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="622" cy="144" r="5.9" fill="#0084FF" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="308" cy="144" r="6.3" fill="#0084FF" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="477" cy="150" r="6.1" fill="#0084FF" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="573" cy="153" r="5.7" fill="#0084FF" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="187" cy="153" r="5.8" fill="#0084FF" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="332" cy="156" r="6.1" fill="#0084FF" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="525" cy="159" r="5.5" fill="#0084FF" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="501" cy="162" r="5.8" fill="#0084FF" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="114" cy="166" r="6.0" fill="#0084FF" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="428" cy="169" r="5.5" fill="#0084FF" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="259" cy="181" r="5.2" fill="#C9D6E3" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="404" cy="187" r="6.0" fill="#C9D6E3" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="211" cy="200" r="5.3" fill="#C9D6E3" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="66" cy="200" r="5.3" fill="#C9D6E3" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="284" cy="206" r="5.5" fill="#C9D6E3" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="598" cy="212" r="5.3" fill="#C9D6E3" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="356" cy="215" r="5.2" fill="#C9D6E3" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="163" cy="219" r="5.3" fill="#C9D6E3" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="90" cy="225" r="5.2" fill="#C9D6E3" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><circle cx="139" cy="237" r="5.1" fill="#C9D6E3" fill-opacity="0.7" stroke="#fff" stroke-width="1.2"/><text x="646" y="95" text-anchor="middle" font-size="9.5" fill="#37474f">中俄美三国元首历史上</text><text x="380" y="105" text-anchor="middle" font-size="9.5" fill="#37474f">新加坡在过去 10 </text><text x="453" y="127" text-anchor="middle" font-size="9.5" fill="#37474f">比亚迪 App 崩了</text><text x="622" y="133" text-anchor="middle" font-size="9.5" fill="#37474f">马斯克抵达深圳，缺席</text><text x="356" y="372" text-anchor="middle" font-size="11" fill="#9aa5b1">热度排名（左冷 → 右热）</text><text x="14" y="30" font-size="11" fill="#9aa5b1">价值分</text></svg></div>
+  <div class="note">💡 <b>四个象限怎么用：</b>
+    <b>右上（又热又有料）</b>——当天就该做，有流量也有信息增量；
+    <b>右下（热但空）</b>——传播广但拆开是空的，跟风只会消耗信任；
+    <b>左上（冷门但有料）</b>——<b>这才是内容创作者的套利空间</b>，竞争小、信息增量大；
+    <b>左下（冷且空）</b>——直接跳过。
+    本期典型的「热但空」：深圳 APEC 世纪晚宴菜单曝光，以地道…；本届深圳APEC会议的意义是什么？…；上海 10 月社零同比跌 4.5%，其中…
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">3</span>价值议题分布在哪些领域</h2>
+  <div class="desc">按每个领域的平均价值分排序（括号内为该领域议题数）。分数越高，说明该领域的议题越「可拆、可验证、可延展」。</div>
+  <div class="chart"><svg width="620" height="385" viewBox="0 0 620 385" style="max-width:100%"><g transform="translate(0,0)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#333">国际与时事（6）</text><rect x="150" y="4" width="345" height="18" rx="3" fill="#0084FF"/><text x="502" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#777">55.0 分</text></g><g transform="translate(0,35)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#333">科学与工程（5）</text><rect x="150" y="4" width="281" height="18" rx="3" fill="#0084FF"/><text x="438" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#777">44.8 分</text></g><g transform="translate(0,70)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#333">AI 与大模型（3）</text><rect x="150" y="4" width="328" height="18" rx="3" fill="#0084FF"/><text x="485" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#777">52.3 分</text></g><g transform="translate(0,105)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#333">宏观经济与消费（2）</text><rect x="150" y="4" width="339" height="18" rx="3" fill="#0084FF"/><text x="496" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#777">54.0 分</text></g><g transform="translate(0,140)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#333">产业与公司（2）</text><rect x="150" y="4" width="379" height="18" rx="3" fill="#0084FF"/><text x="536" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#777">60.5 分</text></g><g transform="translate(0,175)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#333">医学与健康（2）</text><rect x="150" y="4" width="226" height="18" rx="3" fill="#0084FF"/><text x="383" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#777">36.0 分</text></g><g transform="translate(0,210)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#333">互联网产品与平台（1）</text><rect x="150" y="4" width="420" height="18" rx="3" fill="#0084FF"/><text x="577" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#777">67.0 分</text></g><g transform="translate(0,245)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#333">游戏与数字内容（1）</text><rect x="150" y="4" width="401" height="18" rx="3" fill="#0084FF"/><text x="558" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#777">64.0 分</text></g><g transform="translate(0,280)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#333">教育与成长（1）</text><rect x="150" y="4" width="370" height="18" rx="3" fill="#0084FF"/><text x="527" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#777">59.0 分</text></g><g transform="translate(0,315)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#333">文化艺术（1）</text><rect x="150" y="4" width="364" height="18" rx="3" fill="#0084FF"/><text x="521" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#777">58.0 分</text></g><g transform="translate(0,350)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#333">职场与组织（1）</text><rect x="150" y="4" width="332" height="18" rx="3" fill="#0084FF"/><text x="489" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#777">53.0 分</text></g></svg></div>
+  <div class="note">💡 <b>判断：</b>数量多 ≠ 值得做。某个领域条数多但均分低，说明它只是当天热闹；
+    条数少但均分高的领域，往往是<b>当天的真问题被埋没在热搜尾部</b>。</div>
+</section>
+
+<section>
+  <h2><span class="num">4</span>逐条拆解：本期最值得做的 10 条</h2>
+  <div class="desc">每条给出「知识内核 → 分析视角 → 论证方式 → 必答问题」。这不是摘要，是拆解路径：照着这几步走，内容才有信息增量。</div>
+  
+<div class="icard">
+  <div class="ihead">
+    <span class="irank">01</span>
+    <a class="ititle" href="https://www.zhihu.com/question/2105702944855287688" target="_blank">中俄美三国元首历史上首次面对面会晤，有哪些意义？为何会选在这个时间点？</a>
+  </div>
+  <div class="imeta">
+    <span class="pill p-blue">国际与时事</span>
+    <span class="pill p-gray">因果追问</span>
+    <span class="pill p-score">价值 73 分</span>
+    <span class="heat">🔥 1597 万热度 · 624 回答</span>
+  </div>
+  <div class="iblock iquote">
+    <div class="ilabel">这条在说什么（知乎原文摘要）</div>
+    <p>外交部发言人毛宁主持例行记者会。总台央视记者提问：中方发布了中俄美三国元首深圳会晤的消息，能否介绍会晤安排及中方对会晤的期待？ 毛宁表示，这是中俄美三国元首历史上首次面对面会晤，将围绕维护世界和平、促进大国关系战略稳定深入交换意见，具有开创性意义。</p>
+  </div>
+  <div class="iblock">
+    <div class="ilabel">知识内核 · 这类问题该怎么看</div>
+    <p>国际议题的可分析部分在「各方利益诉求 + 约束条件 + 可执行空间」，而不是立场表态。判断一条新闻的信息量，看它是否给出了各方的成本收益。</p>
+  </div>
+  <div class="igrid">
+    <div>
+      <div class="ilabel">要拆这条，得用这些视角</div>
+      <ul class="ilist"><li>各方核心诉求与底线</li><li>国内政治约束</li><li>可执行的交换条件</li></ul>
+    </div>
+    <div>
+      <div class="ilabel">做内容必须回答的问题</div>
+      <ul class="ilist"><li>各方最想要什么、最不能让什么？</li><li>这次会晤/冲突改变了什么具体条件（关税、产能、航道）？</li><li>哪些是姿态，哪些是可落地的安排？</li></ul>
+    </div>
+  </div>
+  <div class="ifoot">
+    <b>论证方式：</b>先给机制，再给证据；忌用相关性冒充因果。　<b>命中依据：</b>会晤、元首
+  </div>
+</div>
+<div class="icard">
+  <div class="ihead">
+    <span class="irank">02</span>
+    <a class="ititle" href="https://www.zhihu.com/question/22998255" target="_blank">新加坡在过去 10 年里 GDP 赶超香港的原因是什么？</a>
+  </div>
+  <div class="imeta">
+    <span class="pill p-blue">宏观经济与消费</span>
+    <span class="pill p-gray">因果追问</span>
+    <span class="pill p-score">价值 70 分</span>
+    <span class="heat">🔥 126 万热度 · 425 回答</span>
+  </div>
+  <div class="iblock iquote">
+    <div class="ilabel">这条在说什么（知乎原文摘要）</div>
+    <p>本题已收入知乎圆桌»经济数据面面观，更多「经济数据」相关话题欢迎关注讨论 新加坡和香港同为亚洲四小龙中的华人城市经济体。2002年，新加坡的GDP是905.8亿美元，香港的则是1663亿美元，新加坡当时仅相当于香港的一半多一点（54%）。但到了2012年，新加…</p>
+  </div>
+  <div class="iblock">
+    <div class="ilabel">知识内核 · 这类问题该怎么看</div>
+    <p>宏观数据的价值在「口径 + 基数 + 结构」三者。同比转负可能只是基数高，总量下跌往往掩盖内部分化。只报数字不拆结构，等于没分析。</p>
+  </div>
+  <div class="igrid">
+    <div>
+      <div class="ilabel">要拆这条，得用这些视角</div>
+      <ul class="ilist"><li>统计口径（限额以上 / 全口径、名义 / 实际）</li><li>基数效应与政策透支</li><li>结构分化（品类、区域、收入分层）</li></ul>
+    </div>
+    <div>
+      <div class="ilabel">做内容必须回答的问题</div>
+      <ul class="ilist"><li>这个数字的口径是什么？和直觉不符时，先怀疑口径和基数。</li><li>是不是前期政策刺激的透支（以旧换新、补贴）？</li><li>总量之下，哪些品类/人群在逆势增长？</li></ul>
+    </div>
+  </div>
+  <div class="ifoot">
+    <b>论证方式：</b>先给机制，再给证据；忌用相关性冒充因果。　<b>命中依据：</b>GDP
+  </div>
+</div>
+<div class="icard">
+  <div class="ihead">
+    <span class="irank">03</span>
+    <a class="ititle" href="https://www.zhihu.com/question/2106068791704511912" target="_blank">比亚迪 App 崩了，多位车主反映 App 无法连接车辆开门，故障原因可能是什么？造成的影响有多大？</a>
+  </div>
+  <div class="imeta">
+    <span class="pill p-blue">互联网产品与平台</span>
+    <span class="pill p-gray">因果追问</span>
+    <span class="pill p-score">价值 67 分</span>
+    <span class="heat">🔥 146 万热度 · 45 回答</span>
+  </div>
+  <div class="iblock iquote">
+    <div class="ilabel">这条在说什么（知乎原文摘要）</div>
+    <p>11月17日下午，多位比亚迪车主反映，比亚迪App疑似出现网络故障，App无法连接车辆，无法通过App打开车门，同时App内商城等页面均无法正常显示。 《正在新闻》使用比亚迪App,提示加载失败，请稍后重试。 武汉一比亚迪门店工作人员告诉《正在新闻》，目前因后…</p>
+  </div>
+  <div class="iblock">
+    <div class="ilabel">知识内核 · 这类问题该怎么看</div>
+    <p>产品议题的分析入口是「谁的用户、什么场景、替掉了谁的什么成本」。功能好坏是结果，背后是分发机制、留存机制与商业化压力三者的拉扯。</p>
+  </div>
+  <div class="igrid">
+    <div>
+      <div class="ilabel">要拆这条，得用这些视角</div>
+      <ul class="ilist"><li>用户场景与替代方案</li><li>分发与留存机制</li><li>故障背后的架构假设（单点依赖 / 容量规划）</li></ul>
+    </div>
+    <div>
+      <div class="ilabel">做内容必须回答的问题</div>
+      <ul class="ilist"><li>这个功能/故障真正影响的是哪一类用户、哪个场景？</li><li>它是在解决既有痛点，还是在为商业化铺路？</li><li>如果是事故，暴露的是技术债还是流程问题？</li></ul>
+    </div>
+  </div>
+  <div class="ifoot">
+    <b>论证方式：</b>先给机制，再给证据；忌用相关性冒充因果。　<b>命中依据：</b>App、崩了、故障
+  </div>
+</div>
+<div class="icard">
+  <div class="ihead">
+    <span class="irank">04</span>
+    <a class="ititle" href="https://www.zhihu.com/question/2106656189337395706" target="_blank">Anthropic 发行定价83美元，超此前发行价区间，成迄今全球最大IPO，怎么看定价过程与估值？</a>
+  </div>
+  <div class="imeta">
+    <span class="pill p-blue">产业与公司</span>
+    <span class="pill p-gray">泛讨论</span>
+    <span class="pill p-score">价值 64 分</span>
+    <span class="heat">🔥 219 万热度 · 34 回答</span>
+  </div>
+  <div class="iblock iquote">
+    <div class="ilabel">这条在说什么（知乎原文摘要）</div>
+    <p>Anthropic以每股83美元的价格完成IPO定价，超出此前70至78美元的发行区间，融资规模突破历史纪录，成为迄今全球最大首次公开募股。 周三据彭博援引知情人士透露，此次发行规模同步扩大。结合同步进行的260亿美元私募配售，本次整体融资总额预计超过940亿…</p>
+  </div>
+  <div class="iblock">
+    <div class="ilabel">知识内核 · 这类问题该怎么看</div>
+    <p>公司议题要看「收入结构 + 成本结构 + 竞争位势」三件事。单季数字是噪声，结构性变化（毛利趋势、客户集中度、产能投放节奏）才是信号。</p>
+  </div>
+  <div class="igrid">
+    <div>
+      <div class="ilabel">要拆这条，得用这些视角</div>
+      <ul class="ilist"><li>收入构成与增长来源</li><li>成本与毛利驱动因素</li><li>竞争格局与替代威胁</li></ul>
+    </div>
+    <div>
+      <div class="ilabel">做内容必须回答的问题</div>
+      <ul class="ilist"><li>增长来自量、价，还是一次性因素？可持续吗？</li><li>毛利变化是成本端还是价格战导致的？</li><li>这个决策反映的是行业周期，还是这家公司的特定处境？</li></ul>
+    </div>
+  </div>
+  <div class="ifoot">
+    <b>论证方式：</b>先补事实缺口，再下判断。　<b>命中依据：</b>IPO、定价、估值
+  </div>
+</div>
+<div class="icard">
+  <div class="ihead">
+    <span class="irank">05</span>
+    <a class="ititle" href="https://www.zhihu.com/question/2106462901686857893" target="_blank">《GTA6》M站开分99，这是一个什么水平？有1分扣在哪了？</a>
+  </div>
+  <div class="imeta">
+    <span class="pill p-blue">游戏与数字内容</span>
+    <span class="pill p-gray">现象解释</span>
+    <span class="pill p-score">价值 64 分</span>
+    <span class="heat">🔥 101 万热度 · 140 回答</span>
+  </div>
+  <div class="iblock iquote">
+    <div class="ilabel">这条在说什么（知乎原文摘要）</div>
+    <p>？？？其实是满分，可能最高只是99？扣你一分怕你骄傲？</p>
+  </div>
+  <div class="iblock">
+    <div class="ilabel">知识内核 · 这类问题该怎么看</div>
+    <p>游戏议题分三层，混着谈必然变成站队：作品层（好不好玩）、技术层（引擎、性能、资源管线）、产业层（发行、买量、长线运营）。其中真正可分析的是后两层；评分争议（如 M 站加权）本质是「权重怎么设计、样本怎么选」，是个统计口径问题。</p>
+  </div>
+  <div class="igrid">
+    <div>
+      <div class="ilabel">要拆这条，得用这些视角</div>
+      <ul class="ilist"><li>作品层 / 技术层 / 产业层先分层</li><li>评分体系的权重与样本口径</li><li>研发成本与回收周期</li></ul>
+    </div>
+    <div>
+      <div class="ilabel">做内容必须回答的问题</div>
+      <ul class="ilist"><li>这条在讨论哪一层？把三层混在一起讨论会失去焦点。</li><li>评分/销量这类指标的口径是什么？加权方式对结果影响多大？</li><li>它的技术或商业选择，是被什么约束逼出来的（预算、工期、平台分成）？</li></ul>
+    </div>
+  </div>
+  <div class="ifoot">
+    <b>论证方式：</b>先做同类对标，再判断是异常还是常态。　<b>命中依据：</b>开分、M站
+  </div>
+</div>
+<div class="icard">
+  <div class="ihead">
+    <span class="irank">06</span>
+    <a class="ititle" href="https://www.zhihu.com/question/2106061681793176634" target="_blank">马斯克抵达深圳，缺席纽约DealBook峰会，他选择深圳APEC峰会节点赴华是出于什么考虑？</a>
+  </div>
+  <div class="imeta">
+    <span class="pill p-blue">国际与时事</span>
+    <span class="pill p-gray">趋势预测</span>
+    <span class="pill p-score">价值 61 分</span>
+    <span class="heat">🔥 603 万热度 · 110 回答</span>
+  </div>
+  <div class="iblock iquote">
+    <div class="ilabel">这条在说什么（知乎原文摘要）</div>
+    <p>11月18日，特朗普车队抵达深圳东海朗廷酒店，马斯克现身随行大巴车。 11月17日，马斯克在回复一条关于纽约DealBook峰会的帖文下留言称：“I will be in China, so it will be digital me.（我会在中国，所以届时将…</p>
+  </div>
+  <div class="iblock">
+    <div class="ilabel">知识内核 · 这类问题该怎么看</div>
+    <p>国际议题的可分析部分在「各方利益诉求 + 约束条件 + 可执行空间」，而不是立场表态。判断一条新闻的信息量，看它是否给出了各方的成本收益。</p>
+  </div>
+  <div class="igrid">
+    <div>
+      <div class="ilabel">要拆这条，得用这些视角</div>
+      <ul class="ilist"><li>各方核心诉求与底线</li><li>国内政治约束</li><li>可执行的交换条件</li></ul>
+    </div>
+    <div>
+      <div class="ilabel">做内容必须回答的问题</div>
+      <ul class="ilist"><li>各方最想要什么、最不能让什么？</li><li>这次会晤/冲突改变了什么具体条件（关税、产能、航道）？</li><li>哪些是姿态，哪些是可落地的安排？</li></ul>
+    </div>
+  </div>
+  <div class="ifoot">
+    <b>论证方式：</b>给条件式预测：在什么条件下成立，触发信号是什么。　<b>命中依据：</b>峰会、APEC
+  </div>
+</div>
+<div class="icard">
+  <div class="ihead">
+    <span class="irank">07</span>
+    <a class="ititle" href="https://www.zhihu.com/question/2106133971863954449" target="_blank">如何看待雷军 APEC 发言紧张，网友称「好像略微有点社恐」？</a>
+  </div>
+  <div class="imeta">
+    <span class="pill p-blue">国际与时事</span>
+    <span class="pill p-gray">价值判断</span>
+    <span class="pill p-score">价值 61 分</span>
+    <span class="heat">🔥 102 万热度 · 153 回答</span>
+  </div>
+  <div class="iblock iquote">
+    <div class="ilabel">这条在说什么（知乎原文摘要）</div>
+    <p>来自APEC工商领导人峰会中外嘉宾的声音 11月17日，雷军晒出APEC发言图，并配文“APEC CEO Summit 2026！”雷军在评论区写道“给台下朋友们拍了一张合影 ”。 评论区里，有粉丝问道，“全程看完雷总发言，好像略微有点社恐”，随后小米服务 在…</p>
+  </div>
+  <div class="iblock">
+    <div class="ilabel">知识内核 · 这类问题该怎么看</div>
+    <p>国际议题的可分析部分在「各方利益诉求 + 约束条件 + 可执行空间」，而不是立场表态。判断一条新闻的信息量，看它是否给出了各方的成本收益。</p>
+  </div>
+  <div class="igrid">
+    <div>
+      <div class="ilabel">要拆这条，得用这些视角</div>
+      <ul class="ilist"><li>各方核心诉求与底线</li><li>国内政治约束</li><li>可执行的交换条件</li></ul>
+    </div>
+    <div>
+      <div class="ilabel">做内容必须回答的问题</div>
+      <ul class="ilist"><li>各方最想要什么、最不能让什么？</li><li>这次会晤/冲突改变了什么具体条件（关税、产能、航道）？</li><li>哪些是姿态，哪些是可落地的安排？</li></ul>
+    </div>
+  </div>
+  <div class="ifoot">
+    <b>论证方式：</b>先明确评价坐标系（效率 / 公平 / 长期），否则各说各话。　<b>命中依据：</b>APEC
+  </div>
+</div>
+<div class="icard">
+  <div class="ihead">
+    <span class="irank">08</span>
+    <a class="ititle" href="https://www.zhihu.com/question/2106047742212686624" target="_blank">儿子拿笔在墙上乱画，儿子爸爸极力反对说要有规矩，姥姥说让孩子画是保护他的探索欲，谁说得对我该站谁？</a>
+  </div>
+  <div class="imeta">
+    <span class="pill p-blue">教育与成长</span>
+    <span class="pill p-gray">对立裁决</span>
+    <span class="pill p-score">价值 59 分</span>
+    <span class="heat">🔥 153 万热度 · 133 回答</span>
+  </div>
+  <div class="iblock iquote">
+    <div class="ilabel">这条在说什么（知乎原文摘要）</div>
+    <p>我儿子两岁了，最近拿笔不在纸上画，也不在画板上画，专门往墙上画。怎么说都没用。 儿子爸爸不让，说得有规矩，不能让他随便画。 我妈说我小时候有一段时间就随便画，让他画吧，保护他的探索欲！ 儿子爸爸怼丈母娘说：她（指我）随便画了，也没见成画家，不能让孩子随便！ 我…</p>
+  </div>
+  <div class="iblock">
+    <div class="ilabel">知识内核 · 这类问题该怎么看</div>
+    <p>教育议题要分清「个体策略」和「系统约束」。个体最优（多刷题、选热门专业）在系统层面会自我抵消（内卷），这是这类讨论最常见的逻辑陷阱。</p>
+  </div>
+  <div class="igrid">
+    <div>
+      <div class="ilabel">要拆这条，得用这些视角</div>
+      <ul class="ilist"><li>个体理性 vs 集体非理性</li><li>信号功能（学历作为筛选信号）</li><li>供需与回报周期</li></ul>
+    </div>
+    <div>
+      <div class="ilabel">做内容必须回答的问题</div>
+      <ul class="ilist"><li>这条建议对个体成立，还是对系统成立？两者冲突吗？</li><li>回报周期多长？期间供需会不会反转？</li><li>它是在提升能力，还是只提升信号？</li></ul>
+    </div>
+  </div>
+  <div class="ifoot">
+    <b>论证方式：</b>先拆出双方各自成立的前提，再指出前提何时失效。　<b>命中依据：</b>孩子、儿子、规矩、探索欲
+  </div>
+</div>
+<div class="icard">
+  <div class="ihead">
+    <span class="irank">09</span>
+    <a class="ititle" href="https://www.zhihu.com/question/2106466938230501933" target="_blank">网友让豆包生成一张「盒子里有13个鸡蛋」的图片，豆包连续十几次纠错仍未能数清，这是为什么？</a>
+  </div>
+  <div class="imeta">
+    <span class="pill p-blue">AI 与大模型</span>
+    <span class="pill p-gray">因果追问</span>
+    <span class="pill p-score">价值 58 分</span>
+    <span class="heat">🔥 301 万热度 · 88 回答</span>
+  </div>
+  <div class="iblock iquote">
+    <div class="ilabel">这条在说什么（知乎原文摘要）</div>
+    <p>[图片]</p>
+  </div>
+  <div class="iblock">
+    <div class="ilabel">知识内核 · 这类问题该怎么看</div>
+    <p>AI 议题的价值几乎都在「能力边界」上：模型在什么任务上系统性弱于人类、为什么弱、这个短板是架构问题还是数据问题。只讨论「好不好用」是消费视角，讨论「为什么这里不行」才是技术视角。</p>
+  </div>
+  <div class="igrid">
+    <div>
+      <div class="ilabel">要拆这条，得用这些视角</div>
+      <ul class="ilist"><li>任务类型拆解（生成 / 检索 / 推理 / 计数 / 空间关系）</li><li>能力来源（预训练语料 / 后训练对齐 / 工具调用）</li><li>失败模式（幻觉、模式匹配代替枚举、长链推理断点）</li></ul>
+    </div>
+    <div>
+      <div class="ilabel">做内容必须回答的问题</div>
+      <ul class="ilist"><li>这个任务对模型而言属于哪一类？为什么这类任务天然难？</li><li>换更强的模型能不能解决？如果只是规模问题，那这个短板就不算结构性缺陷。</li><li>有没有工程解法（外挂工具 / 多步拆解 / 结构化输出）已经在生产里用了？</li></ul>
+    </div>
+  </div>
+  <div class="ifoot">
+    <b>论证方式：</b>先给机制，再给证据；忌用相关性冒充因果。　<b>命中依据：</b>豆包
+  </div>
+</div>
+<div class="icard">
+  <div class="ihead">
+    <span class="irank">10</span>
+    <a class="ititle" href="https://www.zhihu.com/question/2106071380613769004" target="_blank">王羽佳国家大剧院演出迟到17分钟，此前香港站缩减演出时长主办方退款，如何评价这种行为？这算耍大牌吗？</a>
+  </div>
+  <div class="imeta">
+    <span class="pill p-blue">文化艺术</span>
+    <span class="pill p-gray">价值判断</span>
+    <span class="pill p-score">价值 58 分</span>
+    <span class="heat">🔥 78 万热度 · 93 回答</span>
+  </div>
+  <div class="iblock iquote">
+    <div class="ilabel">这条在说什么（知乎原文摘要）</div>
+    <p>音乐会开场已有17分钟，台上乐团和台下观众面面相觑，等待钢琴家登场——这个场景，许多人或许是第一次见。 昨晚（11月16日），古典音乐界“顶流”、钢琴家王羽佳与马勒室内乐团在北京国家大剧院的演出现场便出现了这一幕。当晚音乐会还未完全结束，争议已在社交平台上发酵…</p>
+  </div>
+  <div class="iblock">
+    <div class="ilabel">知识内核 · 这类问题该怎么看</div>
+    <p>文化事件的争议往往不在「好不好」，而在「用哪套标准评」：技艺标准（水平够不够）、契约标准（承诺兑没兑现）、公众期待（名人该不该有额外义务）三者经常被混着用，所以永远吵不出结果。分析的第一步是把这三套标准分开。</p>
+  </div>
+  <div class="igrid">
+    <div>
+      <div class="ilabel">要拆这条，得用这些视角</div>
+      <ul class="ilist"><li>评价标准是谁定的、对谁负责</li><li>契约义务与职业伦理边界</li><li>公众人物的额外期待从哪来</li></ul>
+    </div>
+    <div>
+      <div class="ilabel">做内容必须回答的问题</div>
+      <ul class="ilist"><li>这件事该用技艺标准还是契约标准评？两套标准会得出不同结论吗？</li><li>观众付钱买的是什么？承诺与实际交付差在哪？</li><li>换成普通人做同样的事，还会被批评吗？如果不会，说明争的是身份而非行为。</li></ul>
+    </div>
+  </div>
+  <div class="ifoot">
+    <b>论证方式：</b>先明确评价坐标系（效率 / 公平 / 长期），否则各说各话。　<b>命中依据：</b>演出、剧院
+  </div>
+</div>
+</section>
+
+<section>
+  <h2><span class="num">5</span>其余有价值议题（简表）</h2>
+  <div class="desc">价值分达标但未进前 10，可作为备选选题池。</div>
+  <table>
+    <tr><th style="text-align:left">议题</th><th style="width:130px">领域</th><th style="width:90px">争议类型</th><th style="width:70px">价值分</th><th style="width:100px">热度</th></tr>
+    <tr><td style="text-align:left"><a href="https://www.zhihu.com/question/2103780150286599535" target="_blank" style="color:#0084FF;text-decoration:none">董明珠回应格力业绩下滑，称铜在涨价，宁可损失几十亿利润也不降低品质，空调用铜</a></td><td>产业与公司</td><td>泛讨论</td><td><b>57</b></td><td>103 万热度</td></tr><tr><td style="text-align:left"><a href="https://www.zhihu.com/question/2106443459233932915" target="_blank" style="color:#0084FF;text-decoration:none">WorkBuddy日活用户超1000万，它是怎么做到的？AI Agent已经</a></td><td>AI 与大模型</td><td>泛讨论</td><td><b>56</b></td><td>187 万热度</td></tr><tr><td style="text-align:left"><a href="https://www.zhihu.com/question/2105548043621773338" target="_blank" style="color:#0084FF;text-decoration:none">为什么绿皮火车硬座长久以来都是和别人面对面的布局？没有考虑过社恐人士的心情吗</a></td><td>科学与工程</td><td>因果追问</td><td><b>55</b></td><td>153 万热度</td></tr><tr><td style="text-align:left"><a href="https://www.zhihu.com/question/1970439468998717665" target="_blank" style="color:#0084FF;text-decoration:none">洗衣机「15 分钟快洗」模式洗不干净衣物，为什么厂商还要设置这一功能？</a></td><td>科学与工程</td><td>因果追问</td><td><b>54</b></td><td>70 万热度</td></tr><tr><td style="text-align:left"><a href="https://www.zhihu.com/question/2106044690076103474" target="_blank" style="color:#0084FF;text-decoration:none">腾讯称未来未必需要那么多管理岗位，中层管理者的价值该如何证明？</a></td><td>职场与组织</td><td>趋势预测</td><td><b>53</b></td><td>128 万热度</td></tr><tr><td style="text-align:left"><a href="https://www.zhihu.com/question/2105697528888948240" target="_blank" style="color:#0084FF;text-decoration:none">中俄美元首会晤，各方有哪些诉求？哪些议题可能成为核心议题？</a></td><td>国际与时事</td><td>趋势预测</td><td><b>49</b></td><td>101 万热度</td></tr><tr><td style="text-align:left"><a href="https://www.zhihu.com/question/2103975417191339159" target="_blank" style="color:#0084FF;text-decoration:none">本届深圳APEC会议的意义是什么？</a></td><td>国际与时事</td><td>趋势预测</td><td><b>47</b></td><td>127 万热度</td></tr><tr><td style="text-align:left"><a href="https://www.zhihu.com/question/2022710256736707401" target="_blank" style="color:#0084FF;text-decoration:none">高手是怎么使用AI的？</a></td><td>AI 与大模型</td><td>泛讨论</td><td><b>43</b></td><td>85 万热度</td></tr><tr><td style="text-align:left"><a href="https://www.zhihu.com/question/65375264" target="_blank" style="color:#0084FF;text-decoration:none">为什么飞机不能飞过西藏？</a></td><td>科学与工程</td><td>因果追问</td><td><b>43</b></td><td>59 万热度</td></tr><tr><td style="text-align:left"><a href="https://www.zhihu.com/question/2106134560761292722" target="_blank" style="color:#0084FF;text-decoration:none">泽连斯基公布导弹打击克里米亚大桥致桥拱桥跨坍塌画面，此举将引发哪些连锁反应？</a></td><td>科学与工程</td><td>泛讨论</td><td><b>41</b></td><td>101 万热度</td></tr><tr><td style="text-align:left"><a href="https://www.zhihu.com/question/2103409527672591719" target="_blank" style="color:#0084FF;text-decoration:none">深圳 APEC 世纪晚宴菜单曝光，以地道粤菜为主，同时融入国际菜肴元素，菜品</a></td><td>国际与时事</td><td>泛讨论</td><td><b>39</b></td><td>551 万热度</td></tr><tr><td style="text-align:left"><a href="https://www.zhihu.com/question/2106344557927297862" target="_blank" style="color:#0084FF;text-decoration:none">上海 10 月社零同比跌 4.5%，其中汽车类跌 39.4%，还有哪些细节值</a></td><td>宏观经济与消费</td><td>泛讨论</td><td><b>38</b></td><td>124 万热度</td></tr><tr><td style="text-align:left"><a href="https://www.zhihu.com/question/2094989947350540787" target="_blank" style="color:#0084FF;text-decoration:none">老年人为什么要坚持锻炼？</a></td><td>医学与健康</td><td>因果追问</td><td><b>37</b></td><td>73 万热度</td></tr><tr><td style="text-align:left"><a href="https://www.zhihu.com/question/2026074936318378840" target="_blank" style="color:#0084FF;text-decoration:none">糖尿病的主要诱因是糖分摄入过量吗？</a></td><td>医学与健康</td><td>泛讨论</td><td><b>35</b></td><td>66 万热度</td></tr><tr><td style="text-align:left"><a href="https://www.zhihu.com/question/3538790894" target="_blank" style="color:#0084FF;text-decoration:none">域、界、门、纲、目、科、属、种，生物学还有哪些是我们所不知道的么？</a></td><td>科学与工程</td><td>泛讨论</td><td><b>31</b></td><td>70 万热度</td></tr>
+  </table>
+</section>
+<section>
+  <h2><span class="num">6</span>领域级洞察：每个领域本期在问什么</h2>
+  <div class="desc">把同一领域的议题放在一起看，会发现它们共享同一个知识缺口。这才是「热点背后的东西」。</div>
+  <div class="domcard">
+    <h4>国际与时事<span>本期 6 条 · 均分 55 · 代表议题「中俄美三国元首历史上首次面对面会晤，有哪些意义？为何」</span></h4>
+    <p>国际议题的可分析部分在「各方利益诉求 + 约束条件 + 可执行空间」，而不是立场表态。判断一条新闻的信息量，看它是否给出了各方的成本收益。</p>
+    <div class="q">⚑ 该领域本期最该回答的问题：各方最想要什么、最不能让什么？</div>
+  </div><div class="domcard">
+    <h4>科学与工程<span>本期 5 条 · 均分 45 · 代表议题「为什么绿皮火车硬座长久以来都是和别人面对面的布局？没」</span></h4>
+    <p>科学议题的黄金标准是「机制能否被量化验证」。好的科普不是解释名词，而是给出可检验的因果链和数量级估算。</p>
+    <div class="q">⚑ 该领域本期最该回答的问题：这件事受哪个守恒律/基本约束限制？</div>
+  </div><div class="domcard">
+    <h4>AI 与大模型<span>本期 3 条 · 均分 52 · 代表议题「网友让豆包生成一张「盒子里有13个鸡蛋」的图片，豆包」</span></h4>
+    <p>AI 议题的价值几乎都在「能力边界」上：模型在什么任务上系统性弱于人类、为什么弱、这个短板是架构问题还是数据问题。只讨论「好不好用」是消费视角，讨论「为什么这里不行」才是技术视角。</p>
+    <div class="q">⚑ 该领域本期最该回答的问题：这个任务对模型而言属于哪一类？为什么这类任务天然难？</div>
+  </div><div class="domcard">
+    <h4>宏观经济与消费<span>本期 2 条 · 均分 54 · 代表议题「新加坡在过去 10 年里 GDP 赶超香港的原因是什」</span></h4>
+    <p>宏观数据的价值在「口径 + 基数 + 结构」三者。同比转负可能只是基数高，总量下跌往往掩盖内部分化。只报数字不拆结构，等于没分析。</p>
+    <div class="q">⚑ 该领域本期最该回答的问题：这个数字的口径是什么？和直觉不符时，先怀疑口径和基数。</div>
+  </div><div class="domcard">
+    <h4>产业与公司<span>本期 2 条 · 均分 60 · 代表议题「Anthropic 发行定价83美元，超此前发行价区」</span></h4>
+    <p>公司议题要看「收入结构 + 成本结构 + 竞争位势」三件事。单季数字是噪声，结构性变化（毛利趋势、客户集中度、产能投放节奏）才是信号。</p>
+    <div class="q">⚑ 该领域本期最该回答的问题：增长来自量、价，还是一次性因素？可持续吗？</div>
+  </div><div class="domcard">
+    <h4>医学与健康<span>本期 2 条 · 均分 36 · 代表议题「老年人为什么要坚持锻炼？」</span></h4>
+    <p>健康议题最容易传播错误因果。分析时要区分「相关性 vs 因果」「个体经验 vs 群体证据」「机制推测 vs 临床试验」，并明确证据等级。</p>
+    <div class="q">⚑ 该领域本期最该回答的问题：这个结论来自哪一级证据？样本多大、人群是谁？</div>
+  </div><div class="domcard">
+    <h4>互联网产品与平台<span>本期 1 条 · 均分 67 · 代表议题「比亚迪 App 崩了，多位车主反映 App 无法连接」</span></h4>
+    <p>产品议题的分析入口是「谁的用户、什么场景、替掉了谁的什么成本」。功能好坏是结果，背后是分发机制、留存机制与商业化压力三者的拉扯。</p>
+    <div class="q">⚑ 该领域本期最该回答的问题：这个功能/故障真正影响的是哪一类用户、哪个场景？</div>
+  </div><div class="domcard">
+    <h4>游戏与数字内容<span>本期 1 条 · 均分 64 · 代表议题「《GTA6》M站开分99，这是一个什么水平？有1分扣」</span></h4>
+    <p>游戏议题分三层，混着谈必然变成站队：作品层（好不好玩）、技术层（引擎、性能、资源管线）、产业层（发行、买量、长线运营）。其中真正可分析的是后两层；评分争议（如 M 站加权）本质是「权重怎么设计、样本怎么选」，是个统计口径问题。</p>
+    <div class="q">⚑ 该领域本期最该回答的问题：这条在讨论哪一层？把三层混在一起讨论会失去焦点。</div>
+  </div><div class="domcard">
+    <h4>教育与成长<span>本期 1 条 · 均分 59 · 代表议题「儿子拿笔在墙上乱画，儿子爸爸极力反对说要有规矩，姥姥」</span></h4>
+    <p>教育议题要分清「个体策略」和「系统约束」。个体最优（多刷题、选热门专业）在系统层面会自我抵消（内卷），这是这类讨论最常见的逻辑陷阱。</p>
+    <div class="q">⚑ 该领域本期最该回答的问题：这条建议对个体成立，还是对系统成立？两者冲突吗？</div>
+  </div><div class="domcard">
+    <h4>文化艺术<span>本期 1 条 · 均分 58 · 代表议题「王羽佳国家大剧院演出迟到17分钟，此前香港站缩减演出」</span></h4>
+    <p>文化事件的争议往往不在「好不好」，而在「用哪套标准评」：技艺标准（水平够不够）、契约标准（承诺兑没兑现）、公众期待（名人该不该有额外义务）三者经常被混着用，所以永远吵不出结果。分析的第一步是把这三套标准分开。</p>
+    <div class="q">⚑ 该领域本期最该回答的问题：这件事该用技艺标准还是契约标准评？两套标准会得出不同结论吗？</div>
+  </div><div class="domcard">
+    <h4>职场与组织<span>本期 1 条 · 均分 53 · 代表议题「腾讯称未来未必需要那么多管理岗位，中层管理者的价值该」</span></h4>
+    <p>组织议题的底层是「信息传递成本 + 激励设计」。任何「取消某层管理」的讨论，都要先问：被取消的那层原本承担了什么信息职能。</p>
+    <div class="q">⚑ 该领域本期最该回答的问题：这一层管理原本解决什么问题？取消后由谁承接？</div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">7</span>知乎日报补充（编辑精选，天然低营销）</h2>
+  <div class="desc">热榜是算法排序，日报是人工筛选。两者对照可以看出「大众关心什么」和「编辑认为什么值得读」的差。</div>
+  <table>
+    <tr><th style="text-align:left">标题</th><th style="width:130px">归类</th><th style="text-align:left;width:30%">作者/阅读</th></tr>
+    <tr><td style="text-align:left"><a href="https://daily.zhihu.com/story/9794093" target="_blank" style="color:#0084FF;text-decoration:none">为什么现在的棉服填充物都是聚酯纤维而不是棉花？</a></td><td>科学与工程</td><td style="text-align:left;color:#888;font-size:12px">梧桐的灰烬 · 1 分钟阅读</td></tr><tr><td style="text-align:left"><a href="https://daily.zhihu.com/story/9794098" target="_blank" style="color:#0084FF;text-decoration:none">东市买骏马、西市买鞍鞯、南市买辔头、北市买长鞭，古人为什么不在一个地方一次性买完全部东西？</a></td><td>科学与工程</td><td style="text-align:left;color:#888;font-size:12px">晴耕雨读的浣熊君 · 4 分钟阅读</td></tr><tr><td style="text-align:left"><a href="https://daily.zhihu.com/story/9794107" target="_blank" style="color:#0084FF;text-decoration:none">多动症患者（ADHD）既然是缺乏多巴胺，但为什么他们看上去都很快乐？</a></td><td>医学与健康</td><td style="text-align:left;color:#888;font-size:12px">yhn6537 · 6 分钟阅读</td></tr><tr><td style="text-align:left"><a href="https://daily.zhihu.com/story/9794117" target="_blank" style="color:#0084FF;text-decoration:none">瞎扯 · 如何正确地吐槽</a></td><td>未归类</td><td style="text-align:left;color:#888;font-size:12px">VOL.4030</td></tr>
+  </table>
+  <div class="note">💡 <b>用法：</b>日报里命中「科学与工程 / 医学与健康 / 历史与人文」的条目，通常是可以长期做、不怕过期的选题；
+    热榜里的高价值条目则是「现在做就有时效红利」的选题。<b>两类交替发，账号既有流量又有厚度。</b></div>
+</section>
+
+<section>
+  <h2><span class="num">8</span>本期行动清单</h2>
+  <ul class="tips">
+    <li><b>今天就能做：</b>「中俄美三国元首历史上首次面对面会晤，有哪些意义？为何」——它的价值分 73，属于因果追问型，
+        按「机制 → 证据 → 边界」三段写，别站队。</li>
+    <li><b>值得埋伏：</b>「《GTA6》M站开分99，这是一个什么水平？有1分扣」热度只有 101 万热度，但价值分 64——热度低意味着竞争小，信息增量大，适合做深度而非快讯。</li><li><b>值得埋伏：</b>「如何看待雷军 APEC 发言紧张，网友称「好像略微有」热度只有 102 万热度，但价值分 61——热度低意味着竞争小，信息增量大，适合做深度而非快讯。</li>
+    <li><b>不要碰：</b>消费测评、娱乐八卦、生活琐事 类条目虽然热度高，但拆开后没有可验证的事实，
+        做这类内容短期有播放、长期掉粉。</li>
+    <li><b>建素材库：</b>把本期 11 个领域的「必答问题」抄进笔记，下次遇到同类热点直接套框架，
+        不用从零想角度。</li>
+  </ul>
+</section>
+
+<section>
+  <h2>方法与局限（必读）</h2>
+  <div style="font-size:13px;color:#5c6b7a">
+    <p style="margin-bottom:8px"><b>数据口径：</b>热榜来自 <span class="mono">api.zhihu.com/topstory/hot-list</span>，固定 30 条，
+    是平台当下快照；日报来自 <span class="mono">news-at.zhihu.com/api/4/news/latest</span>，人工编辑筛选。两者都是公开接口，不含任何账号数据。</p>
+    <p style="margin-bottom:8px"><b>分类方法：</b>关键词命中式归类（12 个知识域 / 4 类排除规则），<b>属于启发式，不是语义理解</b>。
+    长句、反讽、隐喻容易误判，报告内已列出命中依据供复核。真正的语义级判断需要人工过一遍。</p>
+    <p style="margin-bottom:8px"><b>价值分含义：</b>100 分制，由知识密度（40）+ 讨论空间（30）+ 时效性（20）+ 可延展性（10）相加。
+    它衡量的是「这条议题能拆出多少可验证的东西」，<b>不代表内容一定火</b>。热度是平台给的，价值是自己判断的，两者不是一回事。</p>
+    <p><b>不做什么：</b>不做立场表态，不评价具体人物，不预测政治走向。本报告只提供分析路径。</p>
+  </div>
+</section>
+
+<div style="text-align:center;color:#b8c2cc;font-size:12px;margin-top:28px">
+  由 WorkBuddy 基于知乎公开接口生成 · 抓取时点 2026-11-19 11:57:19 · 分类为机器启发式判定，请结合人工判断
+</div>
+
+</div></body></html>

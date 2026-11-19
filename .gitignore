@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# 本地个人数据（工作日志、身份配置），不进公开仓库
+.workbuddy/
+
+# 临时文件
+*.png
+!docs/**/*.png
+.DS_Store
+Thumbs.db
+*.log
+
+# 编辑器
+.vscode/
+.idea/
