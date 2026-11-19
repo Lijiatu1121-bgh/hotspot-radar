@@ -2,7 +2,7 @@
 
 每周更新 **B站 / 知乎 / GitHub** 的热点，自动剔除营销与低质内容，输出带分析框架的 HTML 报告，并发布成静态网站。
 
-在线查看：`https://<你的用户名>.github.io/<仓库名>/`（首次部署后替换）
+在线查看：**https://lijiatu1121-bgh.github.io/hotspot-radar/**
 
 ---
 
@@ -116,7 +116,7 @@ python scripts/update.py
 
 ## 第一次配置（只做一次）
 
-**1. 在 GitHub 上建一个公开仓库**（Pages 免费版需要公开仓库）
+**1. 建仓库**（已完成）
 
 **2. 关联远程仓库并推送**
 
