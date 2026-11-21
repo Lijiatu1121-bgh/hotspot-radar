@@ -32,6 +32,25 @@ def git(*args, check=False):
     return r
 
 
+def latest_batch():
+    """找出本地最新的报告批次名。
+
+    commit message 若用「运行日期」，补推昨天报告时会写成今天，误导自己。
+    改成按各渠道 reports/ 下实际存在的批次取最大值。
+    """
+    import re
+    best = None
+    for ch in ('bilibili', 'zhihu', 'github'):
+        d = os.path.join(ROOT, ch, 'reports')
+        if not os.path.isdir(d):
+            continue
+        for name in os.listdir(d):
+            if re.match(r'^\d{4}-\d{2}-\d{2}', name) and os.path.isdir(os.path.join(d, name)):
+                if best is None or name > best:
+                    best = name
+    return best
+
+
 def main():
     ap = argparse.ArgumentParser(description='一键更新热点报告并发布')
     ap.add_argument('--no-push', action='store_true', help='只提交，不推送')
@@ -81,7 +100,8 @@ def main():
         print('    没有变更，跳过提交。')
     else:
         changed = len(status.splitlines())
-        msg = f'chore: 更新 {TODAY} 热点报告（{changed} 个文件变更）'
+        batch = latest_batch() or TODAY
+        msg = f'chore: 更新 {batch} 批次报告（{changed} 个文件变更）'
         c = git('commit', '-m', msg)
         if c.returncode != 0:
             print('    提交失败：' + (c.stderr or c.stdout).strip()[:300])
