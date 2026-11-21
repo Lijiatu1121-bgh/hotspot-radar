@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>知识区爆款背后的知识点</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#f5f6f7;color:#222;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:28px 18px 60px}
+header{background:linear-gradient(135deg,#23ADE5,#9B59B6);color:#fff;border-radius:16px;padding:30px 28px;margin-bottom:22px}
+header h1{font-size:26px;margin-bottom:8px} header p{opacity:.92;font-size:14px}
+.cards{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.card{flex:1;min-width:140px;background:#fff;border-radius:14px;padding:18px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.card .n{font-size:24px;font-weight:800;color:#9B59B6} .card .l{font-size:13px;color:#888;margin-top:4px}
+section{background:#fff;border-radius:14px;padding:24px;margin-bottom:20px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+section h2{font-size:18px;margin-bottom:16px}
+.note{background:#eef9ff;border-left:4px solid #23ADE5;border-radius:0 10px 10px 0;padding:14px 18px;margin:14px 0;font-size:14px}
+.note b{color:#23ADE5}
+.kpwrap{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpcard{border:1px solid #eee;border-radius:12px;padding:14px 16px;background:#fcfcfd}
+.kptop{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.kpname{font-size:15px;font-weight:700;color:#333}
+.badge{font-size:11.5px;color:#FB7299;background:#fdeef5;border-radius:6px;padding:2px 8px;white-space:nowrap}
+.kpex{font-size:13px;color:#555;margin:8px 0}
+.kpvideos{margin:6px 0 0;padding-left:18px;font-size:12.5px;line-height:1.8}
+.kpvideos li{margin:2px 0}
+.tag{display:inline-block;background:#eafaf0;color:#1a9e4b;border-radius:6px;padding:3px 9px;font-size:12px;margin:3px}
+@media(max-width:680px){.kpwrap{grid-template-columns:1fr}}
+</style></head><body><div class="wrap">
+
+<header>
+  <h1>📚 知识区爆款「背后的知识点」报告</h1>
+  <p>数据抓取于 2026-11-20 · 样本 852 条（公开搜索接口，按「方向关键词 + 播放量排序」抓取、去重）· 本报告从"爆款统计"转向"知识点梳理"：把热门视频按知识点聚类，每个知识点讲清"是什么、谁在讲、有多热"</p>
+</header>
+
+<div class="cards">
+  <div class="card"><div class="n">852</div><div class="l">有效样本（条）</div></div>
+  <div class="card"><div class="n">5</div><div class="l">覆盖方向</div></div>
+  <div class="card"><div class="n">32</div><div class="l">命中的知识点</div></div>
+  <div class="card"><div class="n">大语言模型与 Transformer</div><div class="l">最热知识点</div></div>
+</div>
+
+<section>
+  <h2>🌟 全知识区最热知识点 TOP10</h2>
+  <div class="desc" style="font-size:13px;color:#999;margin-bottom:14px">按"覆盖的热门视频数"排序——数字越大，说明越多爆款在讲这个知识点。</div>
+  <div class="chart" style="overflow-x:auto"><svg width="620" height="340" viewBox="0 0 620 340" style="max-width:100%"><g transform="translate(0,0)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#333">大语言模型与 Transformer</text><rect x="170" y="4" width="400" height="18" rx="3" fill="#FB7299"/><text x="576" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#777">82</text></g><g transform="translate(0,34)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#333">手机与新机评测</text><rect x="170" y="4" width="385" height="18" rx="3" fill="#FB7299"/><text x="561" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#777">79</text></g><g transform="translate(0,68)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#333">考古与文物</text><rect x="170" y="4" width="361" height="18" rx="3" fill="#FB7299"/><text x="537" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#777">74</text></g><g transform="translate(0,102)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#333">中国历史与王朝</text><rect x="170" y="4" width="327" height="18" rx="3" fill="#FB7299"/><text x="503" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#777">67</text></g><g transform="translate(0,136)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#333">宇宙与天体</text><rect x="170" y="4" width="317" height="18" rx="3" fill="#FB7299"/><text x="493" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#777">65</text></g><g transform="translate(0,170)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#333">显卡 / GPU</text><rect x="170" y="4" width="288" height="18" rx="3" fill="#FB7299"/><text x="464" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#777">59</text></g><g transform="translate(0,204)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#333">散热与装机</text><rect x="170" y="4" width="268" height="18" rx="3" fill="#FB7299"/><text x="444" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#777">55</text></g><g transform="translate(0,238)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#333">外设与配件</text><rect x="170" y="4" width="229" height="18" rx="3" fill="#FB7299"/><text x="405" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#777">47</text></g><g transform="translate(0,272)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#333">CPU 与制程</text><rect x="170" y="4" width="220" height="18" rx="3" fill="#FB7299"/><text x="396" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#777">45</text></g><g transform="translate(0,306)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#333">文化与艺术</text><rect x="170" y="4" width="205" height="18" rx="3" fill="#FB7299"/><text x="381" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#777">42</text></g></svg></div>
+  <div class="note">💡 这张图直接回答"大家现在在学什么"：排名越靠前，越是当下被集中讨论、值得你优先做内容的知识点。</div>
+</section>
+
+<section>
+      <h2>📐 传统理论科目 <span style="font-size:13px;color:#999;font-weight:400">· 覆盖 7 个知识点</span></h2>
+      <div class="kpwrap"><div class="kpcard">
+          <div class="kptop"><span class="kpname">哲学与逻辑</span>
+            <span class="badge">🔥 41 个热门视频 · 总播放 4235万</span></div>
+          <div class="kpex">对存在、认知、推理的系统性反思，含逻辑学与思维方法，是“开窍类”长尾内容。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1Mg411g7C8" target="_blank" style="color:#23ADE5;text-decoration:none">【复旦大学】哲学课堂（阳明|笛卡尔|坛经|马哲|合50讲）王德峰</a> <span style="color:#999">· 西西相 · 755万</span></li><li><a href="https://www.bilibili.com/video/BV1evS1YnEpV" target="_blank" style="color:#23ADE5;text-decoration:none">【全430集】高斯数学1-6年级动画版 奥数思维提升</a> <span style="color:#999">· 清北无忧资料站 · 731万</span></li><li><a href="https://www.bilibili.com/video/BV1wS42197Ye" target="_blank" style="color:#23ADE5;text-decoration:none">开悟！一口气24小时看完30个人生底层大问题</a> <span style="color:#999">· 大问题Diale · 520万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">有机化学与分子</span>
+            <span class="badge">🔥 28 个热门视频 · 总播放 5093万</span></div>
+          <div class="kpex">碳化合物结构与反应规律，官能团决定性质，是生命化学与材料化学的核心难点。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1cE411E7R3" target="_blank" style="color:#23ADE5;text-decoration:none">初三化学 初中九年级 2019版 上册+下册 张老师讲化学9年级下册</a> <span style="color:#999">· dc008 · 1820万</span></li><li><a href="https://www.bilibili.com/video/BV12b411k7b9" target="_blank" style="color:#23ADE5;text-decoration:none">乐乐课堂：初中化学九年级上册（合集）</a> <span style="color:#999">· 乐乐课堂-天天练 · 1018万</span></li><li><a href="https://www.bilibili.com/video/BV1jntozVEvi" target="_blank" style="color:#23ADE5;text-decoration:none">2025最新版九上化学教材讲解来袭！</a> <span style="color:#999">· 清越姐姐的化学课 · 512万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">电磁学</span>
+            <span class="badge">🔥 5 个热门视频 · 总播放 6408万</span></div>
+          <div class="kpex">电场、磁场及其相互作用，麦克斯韦方程组统一了电与磁，也是现代一切电气设备的原理根。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1BL4y1w761" target="_blank" style="color:#23ADE5;text-decoration:none">九年级物理（人教版）看这个合集就够了【1】初中物理 比热容 热机 电</a> <span style="color:#999">· 于总CEO · 3468万</span></li><li><a href="https://www.bilibili.com/video/BV1KSPeeGE1q" target="_blank" style="color:#23ADE5;text-decoration:none">【期末冲刺上大分】《大物/大学物理》3小时快速突击，期末不挂科【蜂考</a> <span style="color:#999">· 蜂考 · 1521万</span></li><li><a href="https://www.bilibili.com/video/BV1CG4y1n7Eg" target="_blank" style="color:#23ADE5;text-decoration:none">九年级物理（人教版）看这个合集就够了【2】初中物理 比热容 热机 电</a> <span style="color:#999">· 于总CEO · 1206万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">经典力学</span>
+            <span class="badge">🔥 4 个热门视频 · 总播放 1661万</span></div>
+          <div class="kpex">以牛顿三定律为核心的物体运动规律，含能量守恒、引力、动量，是物理入门第一座大山。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1KSPeeGE1q" target="_blank" style="color:#23ADE5;text-decoration:none">【期末冲刺上大分】《大物/大学物理》3小时快速突击，期末不挂科【蜂考</a> <span style="color:#999">· 蜂考 · 1521万</span></li><li><a href="https://www.bilibili.com/video/BV1UxnA6yEdw" target="_blank" style="color:#23ADE5;text-decoration:none">尼采：纵然上帝已死，我仍努力向生命举杯</a> <span style="color:#999">· 子非秋月 · 131万</span></li><li><a href="https://www.bilibili.com/video/BV12psG6GEE5" target="_blank" style="color:#23ADE5;text-decoration:none">震惊瘫坐！机械波多解总算有人讲透！一招万能比例式，带你直接起飞！【高</a> <span style="color:#999">· 晴姐有美有物理 · 9万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">微积分与极限</span>
+            <span class="badge">🔥 3 个热门视频 · 总播放 2223万</span></div>
+          <div class="kpex">研究“变化率与累积”的数学分支，核心是导数与积分。爆款多集中在“直观理解极限/导数几何意义/微积分到底用来干嘛”。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1mN411r7VM" target="_blank" style="color:#23ADE5;text-decoration:none">《高等数学(上)》6小时速成课 | 框框老师（突击课，适合高等数学(</a> <span style="color:#999">· 框框老师课堂 · 2050万</span></li><li><a href="https://www.bilibili.com/video/BV1Gn4y1X7WH" target="_blank" style="color:#23ADE5;text-decoration:none">【高清修复补档】香蕉君♂ 热舞（极限画面处理）</a> <span style="color:#999">· LGTN-Stu · 172万</span></li><li><a href="https://www.bilibili.com/video/BV1DMeBzcEmG" target="_blank" style="color:#23ADE5;text-decoration:none">张旭老师微积分</a> <span style="color:#999">· 小王影视快看 · 1万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">线性代数与矩阵</span>
+            <span class="badge">🔥 2 个热门视频 · 总播放 16018万</span></div>
+          <div class="kpex">用向量和矩阵研究线性变换，是 AI、图形学、工程计算的共同地基，常被吐槽“学了不知道干嘛”于是成为讲解热点。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1CAxaeHEeH" target="_blank" style="color:#23ADE5;text-decoration:none">《高等数学》全程教学视频 2.0版【宋浩老师】</a> <span style="color:#999">· 宋浩老师官方 · 13967万</span></li><li><a href="https://www.bilibili.com/video/BV1mN411r7VM" target="_blank" style="color:#23ADE5;text-decoration:none">《高等数学(上)》6小时速成课 | 框框老师（突击课，适合高等数学(</a> <span style="color:#999">· 框框老师课堂 · 2050万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">遗传与进化</span>
+            <span class="badge">🔥 2 个热门视频 · 总播放 5万</span></div>
+          <div class="kpex">基因如何传递、物种如何演化，含 DNA、自然选择，解释“我们从哪来、生命怎么运作”。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1LkPKeVEK9" target="_blank" style="color:#23ADE5;text-decoration:none">世界上最神奇的10种动物交配！第8名为爱进化新丁丁，第1名连续交配2</a> <span style="color:#999">· 账号已注销 · 4万</span></li><li><a href="https://www.bilibili.com/video/BV1CisU6uEc8" target="_blank" style="color:#23ADE5;text-decoration:none">被人剁下的耳朵长出密密麻麻细线进化独立生物，叛逃身体差点回不来，co</a> <span style="color:#999">· 华宇影视w · 1万</span></li></ul>
+        </div></div>
+    </section><section>
+      <h2>🤖 AI/人工智能 <span style="font-size:13px;color:#999;font-weight:400">· 覆盖 8 个知识点</span></h2>
+      <div class="kpwrap"><div class="kpcard">
+          <div class="kptop"><span class="kpname">大语言模型与 Transformer</span>
+            <span class="badge">🔥 82 个热门视频 · 总播放 1847万</span></div>
+          <div class="kpex">以 Transformer 架构预训练的大规模语言模型（GPT/通义/智谱等），是当前 AI 热潮的底层底座。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1owrpYKEtP" target="_blank" style="color:#23ADE5;text-decoration:none">【官方中英】2025年公认最好的【吴恩达机器学习课程】附课件、代码及</a> <span style="color:#999">· 吴恩达AI_An · 482万</span></li><li><a href="https://www.bilibili.com/video/BV1uNk1YxEJQ" target="_blank" style="color:#23ADE5;text-decoration:none">【全748集】目前B站最全最细的AI大模型零基础全套教程，2025最</a> <span style="color:#999">· 大模型官方课程 · 389万</span></li><li><a href="https://www.bilibili.com/video/BV1E7wtzaEdq" target="_blank" style="color:#23ADE5;text-decoration:none">从 LLM 到 Agent Skill，一期视频带你打通底层逻辑！</a> <span style="color:#999">· 马克的技术工作坊 · 227万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">大模型应用提效</span>
+            <span class="badge">🔥 27 个热门视频 · 总播放 341万</span></div>
+          <div class="kpex">用 AI 助手做编程、写作、办公、数据分析，是离普通人最近的“生产力”落地方向。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1gG411f7zX" target="_blank" style="color:#23ADE5;text-decoration:none">周志华老师亲讲-西瓜书全网最详尽讲解-1080p高清原版《机器学习初</a> <span style="color:#999">· yxl-bili · 111万</span></li><li><a href="https://www.bilibili.com/video/BV1qf4y1x7kB" target="_blank" style="color:#23ADE5;text-decoration:none">(强推)浙江大学-机器学习</a> <span style="color:#999">· 啥都会一点的研究 · 100万</span></li><li><a href="https://www.bilibili.com/video/BV1NWTjz4Efg" target="_blank" style="color:#23ADE5;text-decoration:none">机器学习第1节｜线性回归模型（上课啦）</a> <span style="color:#999">· 卡卡老师讲数据科 · 45万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">AI Agent 智能体</span>
+            <span class="badge">🔥 21 个热门视频 · 总播放 795万</span></div>
+          <div class="kpex">能自主规划、调用工具完成任务的 AI 系统，被视为从“聊天”走向“干活”的关键形态。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1uNk1YxEJQ" target="_blank" style="color:#23ADE5;text-decoration:none">【全748集】目前B站最全最细的AI大模型零基础全套教程，2025最</a> <span style="color:#999">· 大模型官方课程 · 389万</span></li><li><a href="https://www.bilibili.com/video/BV1E7wtzaEdq" target="_blank" style="color:#23ADE5;text-decoration:none">从 LLM 到 Agent Skill，一期视频带你打通底层逻辑！</a> <span style="color:#999">· 马克的技术工作坊 · 227万</span></li><li><a href="https://www.bilibili.com/video/BV1WqpS66E7w" target="_blank" style="color:#23ADE5;text-decoration:none">AI为何开始欺骗人类｜OpenAI智能体失控事件</a> <span style="color:#999">· 咻弗森 · 136万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">RAG 与知识库</span>
+            <span class="badge">🔥 13 个热门视频 · 总播放 750万</span></div>
+          <div class="kpex">检索增强生成：让模型先查资料再回答，缓解幻觉、接入私有知识，是当前落地最稳的架构。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1uNk1YxEJQ" target="_blank" style="color:#23ADE5;text-decoration:none">【全748集】目前B站最全最细的AI大模型零基础全套教程，2025最</a> <span style="color:#999">· 大模型官方课程 · 389万</span></li><li><a href="https://www.bilibili.com/video/BV17J411C7zZ" target="_blank" style="color:#23ADE5;text-decoration:none">【一起啃书】机器学习西瓜书白话解读</a> <span style="color:#999">· 致敬大神 · 173万</span></li><li><a href="https://www.bilibili.com/video/BV1T84y167U9" target="_blank" style="color:#23ADE5;text-decoration:none">这也太全了！回归算法、聚类算法、决策树、随机森林、神经网络、贝叶斯算</a> <span style="color:#999">· 迪哥AI课堂 · 147万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">微调与对齐</span>
+            <span class="badge">🔥 10 个热门视频 · 总播放 391万</span></div>
+          <div class="kpex">在预训练模型上用特定数据继续训练(LoRA等)或对齐人类偏好(RLHF)，让通用模型变“专用”。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1uNk1YxEJQ" target="_blank" style="color:#23ADE5;text-decoration:none">【全748集】目前B站最全最细的AI大模型零基础全套教程，2025最</a> <span style="color:#999">· 大模型官方课程 · 389万</span></li><li><a href="https://www.bilibili.com/video/BV1vBsJ6LEQC" target="_blank" style="color:#23ADE5;text-decoration:none">从头开始机器学习 | 环境搭建、KNN、线性回归、逻辑回归、决策树、</a> <span style="color:#999">· AI大模型课程合 · 2万</span></li><li><a href="https://www.bilibili.com/video/BV1XdGJzfE2U" target="_blank" style="color:#23ADE5;text-decoration:none">【大模型基础】一个视频带你快速认识什么是大模型~</a> <span style="color:#999">· 账号已注销 · 1万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">提示词工程</span>
+            <span class="badge">🔥 7 个热门视频 · 总播放 675万</span></div>
+          <div class="kpex">通过设计指令(Prompt)引导模型输出，是零代码撬动模型能力的最高性价比入口。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1uNk1YxEJQ" target="_blank" style="color:#23ADE5;text-decoration:none">【全748集】目前B站最全最细的AI大模型零基础全套教程，2025最</a> <span style="color:#999">· 大模型官方课程 · 389万</span></li><li><a href="https://www.bilibili.com/video/BV1E7wtzaEdq" target="_blank" style="color:#23ADE5;text-decoration:none">从 LLM 到 Agent Skill，一期视频带你打通底层逻辑！</a> <span style="color:#999">· 马克的技术工作坊 · 227万</span></li><li><a href="https://www.bilibili.com/video/BV1ssN16HEkq" target="_blank" style="color:#23ADE5;text-decoration:none">【2026最新版】ChatGPT+Codex 零基础全套教程｜从入门</a> <span style="color:#999">· 马士兵长沙中心 · 37万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">扩散模型与 AIGC</span>
+            <span class="badge">🔥 2 个热门视频 · 总播放 14万</span></div>
+          <div class="kpex">通过逐步去噪生成图像/视频(SD、Midjourney、Sora等)，引爆了 AI 内容创作浪潮。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1GFsb6AEry" target="_blank" style="color:#23ADE5;text-decoration:none">Token无限，千亿大模型装进小盒子，爽！【大师之路X10 NVID</a> <span style="color:#999">· 檀东东Tango · 8万</span></li><li><a href="https://www.bilibili.com/video/BV1Hrst6LEbz" target="_blank" style="color:#23ADE5;text-decoration:none">16GB 显存也能跑 180B 大模型？我又加了一张 RTX 506</a> <span style="color:#999">· 司波图 · 6万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">多模态与推理</span>
+            <span class="badge">🔥 2 个热门视频 · 总播放 2万</span></div>
+          <div class="kpex">模型同时理解图文等多模态信息，并以链式推理(o1类)提升数学/代码等复杂任务表现。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1wZsm6KEHw" target="_blank" style="color:#23ADE5;text-decoration:none">【更新GPT6.2】全球27款主流AI大模型强度排行！</a> <span style="color:#999">· 梦涟真红 · 2万</span></li><li><a href="https://www.bilibili.com/video/BV12ms46HEVp" target="_blank" style="color:#23ADE5;text-decoration:none">超值福利上线！ChatGPT Plus、Pro 5 倍、Pro10 </a> <span style="color:#999">· 芒果派_- · 0万</span></li></ul>
+        </div></div>
+    </section><section>
+      <h2>🔧 电子设备 <span style="font-size:13px;color:#999;font-weight:400">· 覆盖 7 个知识点</span></h2>
+      <div class="kpwrap"><div class="kpcard">
+          <div class="kptop"><span class="kpname">手机与新机评测</span>
+            <span class="badge">🔥 79 个热门视频 · 总播放 1157万</span></div>
+          <div class="kpex">旗舰新机发布季的实测对比，影像、性能、续航、信号是焦点，更新节奏最快。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1TdEj6yECy" target="_blank" style="color:#23ADE5;text-decoration:none">2026年，我到底该买哪台相机？</a> <span style="color:#999">· Linkspho · 242万</span></li><li><a href="https://www.bilibili.com/video/BV1j2421N7mm" target="_blank" style="color:#23ADE5;text-decoration:none">不能带手机，如何记录校园生活？那一定不要买“4k学生ccd相机！”给</a> <span style="color:#999">· 小銀Retrot · 130万</span></li><li><a href="https://www.bilibili.com/video/BV1Q3sZ67EY8" target="_blank" style="color:#23ADE5;text-decoration:none">【建议收藏】手机终于降价了！2026双十一全价位真香机大盘点</a> <span style="color:#999">· 搞机所 · 103万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">显卡 / GPU</span>
+            <span class="badge">🔥 59 个热门视频 · 总播放 374万</span></div>
+          <div class="kpex">负责图形与并行计算的芯片，显存容量/位宽、架构、光追是选购与评测的核心参数，也是 AI 算力的载体。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1EYx56MEtK" target="_blank" style="color:#23ADE5;text-decoration:none">大对账！25年初到26年双十一，电脑硬件/显卡/内存/固态/到底涨了</a> <span style="color:#999">· 天才赵德柱 · 87万</span></li><li><a href="https://www.bilibili.com/video/BV1C1Gg6vEeV" target="_blank" style="color:#23ADE5;text-decoration:none">53颗CPU+52张显卡 耗时三个月！才做完的实测CPU+显卡天梯图</a> <span style="color:#999">· 硬核搞机宅 · 59万</span></li><li><a href="https://www.bilibili.com/video/BV1SHsU6UECz" target="_blank" style="color:#23ADE5;text-decoration:none">闪存价格两周下跌20%：数据中心大砍单｜显卡日报11月19日</a> <span style="color:#999">· 芝士华莱士 · 39万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">散热与装机</span>
+            <span class="badge">🔥 55 个热门视频 · 总播放 1340万</span></div>
+          <div class="kpex">DIY 装机里的散热、电源、机箱搭配，直接决定稳定性与超频上限。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1gHSyY3E6q" target="_blank" style="color:#23ADE5;text-decoration:none">硬件工程师入门教程|电子工程师|零基础|全免费|2024全新课程|中</a> <span style="color:#999">· 电子online · 886万</span></li><li><a href="https://www.bilibili.com/video/BV1EYx56MEtK" target="_blank" style="color:#23ADE5;text-decoration:none">大对账！25年初到26年双十一，电脑硬件/显卡/内存/固态/到底涨了</a> <span style="color:#999">· 天才赵德柱 · 87万</span></li><li><a href="https://www.bilibili.com/video/BV1kcRGBkErQ" target="_blank" style="color:#23ADE5;text-decoration:none">18元的CPU，性能逆天，让我欲罢不能！</a> <span style="color:#999">· 图哥捡垃圾 · 80万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">外设与配件</span>
+            <span class="badge">🔥 47 个热门视频 · 总播放 3618万</span></div>
+          <div class="kpex">耳机、键鼠、显示器、相机等体验与生产力外设，客单价低、决策频次高。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV11jKm6bE61" target="_blank" style="color:#23ADE5;text-decoration:none">【蓝牙耳机推荐2026】 年度大合集！含音质和降噪测试！百元蓝牙耳机</a> <span style="color:#999">· 知音剑客 · 1074万</span></li><li><a href="https://www.bilibili.com/video/BV18ega6iE7E" target="_blank" style="color:#23ADE5;text-decoration:none">【头戴式耳机推荐】2026头戴式耳机怎么选？真实自用实测！含云试听测</a> <span style="color:#999">· 咕咕-gugu- · 619万</span></li><li><a href="https://www.bilibili.com/video/BV1nzwMz1EmC" target="_blank" style="color:#23ADE5;text-decoration:none">【耳夹式耳机】耳夹式耳机测评全价位！耳夹式耳机/开放式耳机/耳夹式耳</a> <span style="color:#999">· 耳夹式耳机推荐2 · 392万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">CPU 与制程</span>
+            <span class="badge">🔥 45 个热门视频 · 总播放 560万</span></div>
+          <div class="kpex">中央处理器，制程(nm)、核心数、架构决定性能；NPU 兴起让端侧 AI 成为新卖点。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1kcRGBkErQ" target="_blank" style="color:#23ADE5;text-decoration:none">18元的CPU，性能逆天，让我欲罢不能！</a> <span style="color:#999">· 图哥捡垃圾 · 80万</span></li><li><a href="https://www.bilibili.com/video/BV1C1Gg6vEeV" target="_blank" style="color:#23ADE5;text-decoration:none">53颗CPU+52张显卡 耗时三个月！才做完的实测CPU+显卡天梯图</a> <span style="color:#999">· 硬核搞机宅 · 59万</span></li><li><a href="https://www.bilibili.com/video/BV1Ke3C6FEuc" target="_blank" style="color:#23ADE5;text-decoration:none">2026笔记本CPU命名解析：大混乱时代！</a> <span style="color:#999">· 笔吧评测室 · 55万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">笔记本 / 整机选购</span>
+            <span class="badge">🔥 26 个热门视频 · 总播放 367万</span></div>
+          <div class="kpex">按需求选轻薄本/游戏本/台式整机，平衡性能、续航、价格，是“避坑指南”类常青内容。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1j2421N7mm" target="_blank" style="color:#23ADE5;text-decoration:none">不能带手机，如何记录校园生活？那一定不要买“4k学生ccd相机！”给</a> <span style="color:#999">· 小銀Retrot · 130万</span></li><li><a href="https://www.bilibili.com/video/BV1KYx16BELo" target="_blank" style="color:#23ADE5;text-decoration:none">「科技美学」双十一及面向2027年全价位机型选购指南 |  低价拿下</a> <span style="color:#999">· 科技美学 · 73万</span></li><li><a href="https://www.bilibili.com/video/BV1tCxk6PE9R" target="_blank" style="color:#23ADE5;text-decoration:none">【建议收藏】2026年11.11笔记本选购指南：重新定义性价比</a> <span style="color:#999">· 笔吧评测室 · 61万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">芯片与算力</span>
+            <span class="badge">🔥 7 个热门视频 · 总播放 52万</span></div>
+          <div class="kpex">半导体芯片与算力供给，是 AI 与整机升级的底层约束，也是地缘政治焦点。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1ME421A78n" target="_blank" style="color:#23ADE5;text-decoration:none">作为电子数字世界大脑的CPU是如何发展至今的？【CPU发展史｜仿生之</a> <span style="color:#999">· 让水烧开 · 27万</span></li><li><a href="https://www.bilibili.com/video/BV1NL41157B1" target="_blank" style="color:#23ADE5;text-decoration:none">这是B站讲的最好的CPU工作原理视频</a> <span style="color:#999">· 程序员外星人 · 17万</span></li><li><a href="https://www.bilibili.com/video/BV1Vjsz6wEjV" target="_blank" style="color:#23ADE5;text-decoration:none">同是三千档游戏手机，参数性能对齐，但差距一上手便能清晰感受！一加/i</a> <span style="color:#999">· 科技盲区 · 7万</span></li></ul>
+        </div></div>
+    </section><section>
+      <h2>🔭 科学科普 <span style="font-size:13px;color:#999;font-weight:400">· 覆盖 5 个知识点</span></h2>
+      <div class="kpwrap"><div class="kpcard">
+          <div class="kptop"><span class="kpname">宇宙与天体</span>
+            <span class="badge">🔥 65 个热门视频 · 总播放 6830万</span></div>
+          <div class="kpex">黑洞、星系、恒星演化、引力波，回答“宇宙从哪来、到哪去”，是科普顶流题材。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1z4411Y7tX" target="_blank" style="color:#23ADE5;text-decoration:none">世上有几人能活到这短片结束？</a> <span style="color:#999">· 尽整没用的 · 4017万</span></li><li><a href="https://www.bilibili.com/video/BV1Zk7jzzEeh" target="_blank" style="color:#23ADE5;text-decoration:none">量子永生：当你无法死去，才是真正的恐怖！</a> <span style="color:#999">· 宇宙世界0 · 486万</span></li><li><a href="https://www.bilibili.com/video/BV1vNbrzwE3D" target="_blank" style="color:#23ADE5;text-decoration:none">宇宙膨胀的真相，正在颠覆138亿年的认知</a> <span style="color:#999">· 宇宙世界0 · 357万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">量子与微观</span>
+            <span class="badge">🔥 38 个热门视频 · 总播放 1473万</span></div>
+          <div class="kpex">原子、基本粒子、量子现象，窥探物质最底层的规律，反直觉最吸睛。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1Zk7jzzEeh" target="_blank" style="color:#23ADE5;text-decoration:none">量子永生：当你无法死去，才是真正的恐怖！</a> <span style="color:#999">· 宇宙世界0 · 486万</span></li><li><a href="https://www.bilibili.com/video/BV1eN4y1w7SS" target="_blank" style="color:#23ADE5;text-decoration:none">一口气看懂量子力学，量子叠加，量子纠缠，量子通信</a> <span style="color:#999">· 科学认识论 · 172万</span></li><li><a href="https://www.bilibili.com/video/BV1XN4AenETx" target="_blank" style="color:#23ADE5;text-decoration:none">203分钟，一口气看完，深度解读整个量子力学的发展历程</a> <span style="color:#999">· 浮世叁千问 · 132万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">地球与气候</span>
+            <span class="badge">🔥 18 个热门视频 · 总播放 546万</span></div>
+          <div class="kpex">地球内部结构、地质变迁、气候变化与海洋，连接当下气候议题。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1Lr421K7B9" target="_blank" style="color:#23ADE5;text-decoration:none">240分钟，带你深度了解宇宙天文知识，看完将颠覆你的认知！</a> <span style="color:#999">· 太空科学站 · 186万</span></li><li><a href="https://www.bilibili.com/video/BV188Wq6DETJ" target="_blank" style="color:#23ADE5;text-decoration:none">三峡大坝：一面压住半个中国的墙 #科普 #三峡大坝</a> <span style="color:#999">· A地球科普 · 91万</span></li><li><a href="https://www.bilibili.com/video/BV1wS4Z6uE4t" target="_blank" style="color:#23ADE5;text-decoration:none">【硬核科普】为什么地球上的山，必须低于1万米？</a> <span style="color:#999">· 這不科學B站 · 90万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">生命与进化</span>
+            <span class="badge">🔥 17 个热门视频 · 总播放 5112万</span></div>
+          <div class="kpex">进化论、恐龙、大脑与意识，理解生命的来龙去脉，天然带故事性。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1z4411Y7tX" target="_blank" style="color:#23ADE5;text-decoration:none">世上有几人能活到这短片结束？</a> <span style="color:#999">· 尽整没用的 · 4017万</span></li><li><a href="https://www.bilibili.com/video/BV1Zk7jzzEeh" target="_blank" style="color:#23ADE5;text-decoration:none">量子永生：当你无法死去，才是真正的恐怖！</a> <span style="color:#999">· 宇宙世界0 · 486万</span></li><li><a href="https://www.bilibili.com/video/BV1KpWb6WENA" target="_blank" style="color:#23ADE5;text-decoration:none">上帝之光：当人类第一次拥有操纵大脑的能力</a> <span style="color:#999">· 大圆镜科普 · 310万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">数学之美</span>
+            <span class="badge">🔥 4 个热门视频 · 总播放 4万</span></div>
+          <div class="kpex">数论、分形、拓扑等，展示数学的结构与趣味，是“高级感”科普方向。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1yv1TBrEk3" target="_blank" style="color:#23ADE5;text-decoration:none">兔女郎讲广义相对论：光滑流形</a> <span style="color:#999">· 薛定谔的兔女郎 · 3万</span></li><li><a href="https://www.bilibili.com/video/BV1F8sh6nEbj" target="_blank" style="color:#23ADE5;text-decoration:none">超对称量子场论与几何-1、(1+1)玻色Sigma模型(经典侧)</a> <span style="color:#999">· 从负数开始Ins · 0万</span></li><li><a href="https://www.bilibili.com/video/BV1XvDbYuERQ" target="_blank" style="color:#23ADE5;text-decoration:none">给孩子的宇宙课 一起去探索宇宙奥秘</a> <span style="color:#999">· 儿童科普动画片 · 0万</span></li></ul>
+        </div></div>
+    </section><section>
+      <h2>🏛️ 人文历史 <span style="font-size:13px;color:#999;font-weight:400">· 覆盖 5 个知识点</span></h2>
+      <div class="kpwrap"><div class="kpcard">
+          <div class="kptop"><span class="kpname">考古与文物</span>
+            <span class="badge">🔥 74 个热门视频 · 总播放 2115万</span></div>
+          <div class="kpex">遗址、文物、博物馆，用实物还原历史，近年随文博热持续走高。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1M34y1y7Zu" target="_blank" style="color:#23ADE5;text-decoration:none">河南挖出一具楚国黑棺，专家注水移棺将其抬出，一把宝剑惊艳世人</a> <span style="color:#999">· 墓史迷踪 · 466万</span></li><li><a href="https://www.bilibili.com/video/BV11x411s7jL" target="_blank" style="color:#23ADE5;text-decoration:none">【CCTV央视纪录片】中国考古古墓探秘（33集全）</a> <span style="color:#999">· 铁臂啊童_ · 385万</span></li><li><a href="https://www.bilibili.com/video/BV1EU7rzkEGd" target="_blank" style="color:#23ADE5;text-decoration:none">文化盛宴！一期253分钟带你看完中国顶级国宝！</a> <span style="color:#999">· 浪花姜 · 260万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">中国历史与王朝</span>
+            <span class="badge">🔥 67 个热门视频 · 总播放 4015万</span></div>
+          <div class="kpex">秦汉、唐宋、明清等王朝兴衰与制度变迁，是最稳的历史基本盘。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1QK4y1K7Zf" target="_blank" style="color:#23ADE5;text-decoration:none">【公开课】北京大学：中国古代史（全172讲）</a> <span style="color:#999">· 农夫CC · 698万</span></li><li><a href="https://www.bilibili.com/video/BV1ej41117VW" target="_blank" style="color:#23ADE5;text-decoration:none">【生命奇观】墨脱森林——世界第一大峡谷里的绝美生灵</a> <span style="color:#999">· 中国国家地理 · 637万</span></li><li><a href="https://www.bilibili.com/video/BV11x411s7jL" target="_blank" style="color:#23ADE5;text-decoration:none">【CCTV央视纪录片】中国考古古墓探秘（33集全）</a> <span style="color:#999">· 铁臂啊童_ · 385万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">文化与艺术</span>
+            <span class="badge">🔥 42 个热门视频 · 总播放 2836万</span></div>
+          <div class="kpex">文学、诗词、艺术流变，理解文化表达与审美。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1QK4y1K7Zf" target="_blank" style="color:#23ADE5;text-decoration:none">【公开课】北京大学：中国古代史（全172讲）</a> <span style="color:#999">· 农夫CC · 698万</span></li><li><a href="https://www.bilibili.com/video/BV1M34y1y7Zu" target="_blank" style="color:#23ADE5;text-decoration:none">河南挖出一具楚国黑棺，专家注水移棺将其抬出，一把宝剑惊艳世人</a> <span style="color:#999">· 墓史迷踪 · 466万</span></li><li><a href="https://www.bilibili.com/video/BV11x411s7jL" target="_blank" style="color:#23ADE5;text-decoration:none">【CCTV央视纪录片】中国考古古墓探秘（33集全）</a> <span style="color:#999">· 铁臂啊童_ · 385万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">世界文明与战争</span>
+            <span class="badge">🔥 11 个热门视频 · 总播放 510万</span></div>
+          <div class="kpex">罗马、二战、帝国兴衰等世界史关键节点，叙事张力强、受众广。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1uL4y1v7Vk" target="_blank" style="color:#23ADE5;text-decoration:none">【部编版】八上历史微课合集 |  期末冲刺 | 一线教师 | 努力更</a> <span style="color:#999">· 无心插柳柳成荫太 · 238万</span></li><li><a href="https://www.bilibili.com/video/BV1fq4y1V773" target="_blank" style="color:#23ADE5;text-decoration:none">【不一样角度的历史，不同视野的细化】中华五千年</a> <span style="color:#999">· 及第阁 · 150万</span></li><li><a href="https://www.bilibili.com/video/BV1ag411e7vK" target="_blank" style="color:#23ADE5;text-decoration:none">用文物，打开中国万年极简简简简史【星球特辑】</a> <span style="color:#999">· 星球研究所 · 51万</span></li></ul>
+        </div><div class="kpcard">
+          <div class="kptop"><span class="kpname">哲学与思想</span>
+            <span class="badge">🔥 6 个热门视频 · 总播放 211万</span></div>
+          <div class="kpex">中西方哲学流派与思想史，儒道、启蒙等，满足“认知升级”需求。</div>
+          <ul class="kpvideos"><li><a href="https://www.bilibili.com/video/BV1xA411676B" target="_blank" style="color:#23ADE5;text-decoration:none">锵锵三人行整理合集（2007）</a> <span style="color:#999">· 苹果树下_App · 95万</span></li><li><a href="https://www.bilibili.com/video/BV1ux411G7zm" target="_blank" style="color:#23ADE5;text-decoration:none">【历史/政治/思想】中国古代史(上)（史前——魏晋南北朝）（阎步克教</a> <span style="color:#999">· 桃竹村 · 86万</span></li><li><a href="https://www.bilibili.com/video/BV1b5dHBUERK" target="_blank" style="color:#23ADE5;text-decoration:none">学问猫说历史（全集音频优化版）</a> <span style="color:#999">· 青色的童话 · 28万</span></li></ul>
+        </div></div>
+    </section>
+
+<section>
+  <h2>🔥 当下热门具体词 / 新词</h2>
+  <div class="desc" style="font-size:13px;color:#999;margin-bottom:14px">在热门视频标题中出现频次最高的具体实体/新概念——反映正在被集中讨论的"具体事物"。</div>
+  <div><span class="tag">5090 8</span><span class="tag">rtx 5090 5</span><span class="tag">骁龙 3</span><span class="tag">豆包 2</span><span class="tag">deepseek 2</span><span class="tag">claude 2</span><span class="tag">相对论 2</span><span class="tag">gemini 1</span><span class="tag">llama 1</span><span class="tag">qwen 1</span><span class="tag">鸿蒙 1</span></div>
+  <div class="note">💡 这些词是"知识点"的具象化：比如 DeepSeek / 5090 / Sora 一旦出现，就对应一个大知识点风口，可据此快速定位选题。</div>
+</section>
+
+<div style="text-align:center;color:#bbb;font-size:12px;margin-top:30px">
+  本报告由 WorkBuddy 基于 B站公开搜索接口自动生成 · 知识点聚类基于标题/标签/简介关键词匹配，定义为辅助理解用；数据为「关键词+播放排序」样本，非官方排行榜
+</div>
+</div></body></html>

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub 热点技术分析报告 · 2026-11-20</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#f6f8fa;color:#1f2328;line-height:1.68}
+.wrap{max-width:980px;margin:0 auto;padding:28px 18px 70px}
+header{background:linear-gradient(135deg,#1f2328,#30363d);color:#fff;border-radius:16px;padding:32px 30px;margin-bottom:22px}
+header h1{font-size:26px;margin-bottom:8px}
+header p{opacity:.86;font-size:13.5px}
+.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.cards{display:flex;gap:13px;flex-wrap:wrap;margin-bottom:24px}
+.card{flex:1;min-width:150px;background:#fff;border:1px solid #d8dee4;border-radius:14px;padding:17px 18px}
+.card .n{font-size:25px;font-weight:800;color:#1f2328}
+.card .l{font-size:12.5px;color:#57606a;margin-top:3px;line-height:1.4}
+section{background:#fff;border:1px solid #d8dee4;border-radius:14px;padding:26px;margin-bottom:18px}
+section h2{font-size:18px;margin-bottom:4px}
+section h2 .num{color:#0969da;margin-right:6px}
+section .desc{font-size:13px;color:#57606a;margin-bottom:16px}
+.chart{overflow-x:auto;margin:6px 0}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:9px 8px;border-bottom:1px solid #eaeef2;text-align:center}
+th{background:#f6f8fa;color:#57606a;font-weight:600;font-size:12.5px}
+.note{background:#f0fff4;border-left:4px solid #2da44e;border-radius:0 10px 10px 0;padding:14px 18px;margin:14px 0;font-size:13.8px}
+.note.warn{background:#fff8e6;border-left-color:#bf8700}
+.note b{color:#1a7f37}
+.note.warn b{color:#9a6700}
+.pcard{border:1px solid #d8dee4;border-radius:12px;padding:18px 20px;margin-bottom:14px}
+.phead{display:flex;gap:11px;align-items:flex-start;margin-bottom:10px}
+.pidx{flex:0 0 30px;font-size:15px;font-weight:800;color:#c6cdd5;line-height:1.5}
+.pname{font-size:15.5px;font-weight:700;color:#0969da;text-decoration:none;font-family:ui-monospace,Consolas,monospace}
+.pdesc{font-size:13px;color:#57606a;margin-top:3px}
+.pmeta{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-bottom:13px}
+.pill{display:inline-block;border-radius:6px;padding:2px 8px;font-size:11.5px;white-space:nowrap}
+.p-track{background:#ddf4ff;color:#0969da}
+.p-lang{background:#f6f8fa;color:#57606a;border:1px solid #d8dee4}
+.p-stat{background:#f6f8fa;color:#57606a}
+.p-v{background:#fff8e6;color:#9a6700;font-weight:700}
+.verdict{margin-left:auto;font-size:12px;font-weight:700;border-radius:6px;padding:3px 10px}
+.verdict.ok{background:#1a7f37;color:#fff}
+.verdict.mid{background:#ddf4ff;color:#0969da}
+.verdict.warn{background:#fff1e5;color:#bc4c00}
+.pblock{background:#f6f8fa;border-radius:9px;padding:12px 14px;margin-bottom:11px}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:11px}
+.plabel{font-size:11.5px;font-weight:700;color:#8b949e;letter-spacing:.4px;margin-bottom:6px}
+.plist{list-style:none;font-size:12.8px;color:#424a53}
+.plist li{position:relative;padding-left:13px;margin:5px 0;line-height:1.55}
+.plist li:before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#8fd19e}
+.pfoot{border-top:1px dashed #d8dee4;padding-top:10px}
+.bits{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.bit{font-size:11px;background:#f6f8fa;border:1px solid #eaeef2;border-radius:5px;padding:2px 7px;color:#57606a}
+.bit.neg{background:#fff1e5;border-color:#ffd8b5;color:#bc4c00}
+.tips li{margin:9px 0;list-style:none;padding-left:24px;position:relative;font-size:13.8px}
+.tips li:before{content:"▸";position:absolute;left:4px;color:#0969da;font-weight:700}
+.trend{border-left:3px solid #0969da;padding:2px 0 2px 14px;margin-bottom:16px}
+.trend h4{font-size:14.5px;margin-bottom:5px}
+.trend p{font-size:13px;color:#424a53}
+@media(max-width:640px){.pgrid{grid-template-columns:1fr}}
+</style></head>
+<body><div class="wrap">
+
+<header>
+  <h1>GitHub 热点技术分析报告</h1>
+  <p>抓取于 2026-11-20 18:52:40 · 新星榜 · 近 7 天新建 100 条 · 成长榜 · 8–30 天 100 条 · 活跃榜 · 万星项目近期动态 0 条 · 去重后 200 个仓库 ·
+  剔除刷星/合集 46 个后，保留 154 个可分析项目 · 公开 API，无需 token</p>
+</header>
+
+<div class="cards">
+  <div class="card"><div class="n">154</div><div class="l">可分析项目<br>（剔杂后）</div></div>
+  <div class="card"><div class="n">46</div><div class="l">剔除<br>（刷星/合集）</div></div>
+  <div class="card"><div class="n">143</div><div class="l">星速中位数<br>（星/天）</div></div>
+  <div class="card"><div class="n">33%</div><div class="l">AI 相关项目占比</div></div>
+</div>
+
+<section>
+  <h2><span class="num">1</span>先清场：46 个看似很火、实际没工程价值的仓库</h2>
+  <div class="desc">GitHub 搜索按 star 排序会把三类噪声顶上来：批量刷星投放、资源合集、纯提示词包。它们的共同点是——<b>star 很高，但你 clone 下来没有可运行的东西</b>。</div>
+  <table>
+    <tr><th style="text-align:left">仓库</th><th style="width:100px">类型</th><th style="width:90px">Star</th><th style="text-align:left;width:40%">判定依据</th></tr>
+    <tr><td style="text-align:left"><a href="https://github.com/patch-gg/pixelfx" target="_blank" style="color:#0969da;text-decoration:none">patch-gg/pixelfx</a></td><td>提示词包</td><td>★8,427</td><td style="text-align:left;color:#8b949e;font-size:12px">纯提示词/技能包，无工程实现，质量取决于写作而非代码（命中：skill to）</td></tr><tr><td style="text-align:left"><a href="https://github.com/benjitaylor/skills" target="_blank" style="color:#0969da;text-decoration:none">benjitaylor/skills</a></td><td>提示词包</td><td>★3,841</td><td style="text-align:left;color:#8b949e;font-size:12px">纯提示词/技能包，无工程实现，质量取决于写作而非代码（命中：skills for）</td></tr><tr><td style="text-align:left"><a href="https://github.com/ZiChuanLan/freebie-radar" target="_blank" style="color:#0969da;text-decoration:none">ZiChuanLan/freebie-radar</a></td><td>资源合集</td><td>★1,896</td><td style="text-align:left;color:#8b949e;font-size:12px">清单/合集类，价值在索引而非代码，属于二次整理搬运（命中：资源）</td></tr><tr><td style="text-align:left"><a href="https://github.com/boringmarketer/boring-marketing-skills" target="_blank" style="color:#0969da;text-decoration:none">boringmarketer/boring-marketing-skills</a></td><td>提示词包</td><td>★728</td><td style="text-align:left;color:#8b949e;font-size:12px">纯提示词/技能包，无工程实现，质量取决于写作而非代码（命中：skills for）</td></tr><tr><td style="text-align:left"><a href="https://github.com/nilbuild/stick-scene" target="_blank" style="color:#0969da;text-decoration:none">nilbuild/stick-scene</a></td><td>提示词包</td><td>★518</td><td style="text-align:left;color:#8b949e;font-size:12px">纯提示词/技能包，无工程实现，质量取决于写作而非代码（命中：skill to）</td></tr><tr><td style="text-align:left"><a href="https://github.com/YellowLaborerMarket/Gemini-Config-Checker-" target="_blank" style="color:#0969da;text-decoration:none">YellowLaborerMarket/Gemini-Config-Checker-</a></td><td>刷星投放</td><td>★474</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/weightcashiercupola/Gemini-Config-Checker-" target="_blank" style="color:#0969da;text-decoration:none">weightcashiercupola/Gemini-Config-Checker-</a></td><td>刷星投放</td><td>★473</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/WindGatorRise37/Gemini-Config-Checker-" target="_blank" style="color:#0969da;text-decoration:none">WindGatorRise37/Gemini-Config-Checker-</a></td><td>刷星投放</td><td>★472</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/WyrmClimberManacle/Gemini-Config-Checker-" target="_blank" style="color:#0969da;text-decoration:none">WyrmClimberManacle/Gemini-Config-Checker-</a></td><td>刷星投放</td><td>★472</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/TurtleReside/Gemini-Config-Checker-" target="_blank" style="color:#0969da;text-decoration:none">TurtleReside/Gemini-Config-Checker-</a></td><td>刷星投放</td><td>★472</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/weldbladesmithwharf/Gemini-Config-Checker-" target="_blank" style="color:#0969da;text-decoration:none">weldbladesmithwharf/Gemini-Config-Checker-</a></td><td>刷星投放</td><td>★472</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/WindowStaffGate11/Gemini-Config-Checker-" target="_blank" style="color:#0969da;text-decoration:none">WindowStaffGate11/Gemini-Config-Checker-</a></td><td>刷星投放</td><td>★472</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/WerewolfEmuHub/Gemini-Config-Checker-" target="_blank" style="color:#0969da;text-decoration:none">WerewolfEmuHub/Gemini-Config-Checker-</a></td><td>刷星投放</td><td>★472</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/Violetnyudress/Gemini-Config-Checker-" target="_blank" style="color:#0969da;text-decoration:none">Violetnyudress/Gemini-Config-Checker-</a></td><td>刷星投放</td><td>★472</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/TrooperFilter/Gemini-Config-Checker-" target="_blank" style="color:#0969da;text-decoration:none">TrooperFilter/Gemini-Config-Checker-</a></td><td>刷星投放</td><td>★472</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/Watchlespeed/Gemini-Config-Checker-" target="_blank" style="color:#0969da;text-decoration:none">Watchlespeed/Gemini-Config-Checker-</a></td><td>刷星投放</td><td>★472</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/wisemeadowlarkspike/Gemini-Config-Checker-" target="_blank" style="color:#0969da;text-decoration:none">wisemeadowlarkspike/Gemini-Config-Checker-</a></td><td>刷星投放</td><td>★472</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/VortexHostFeel/Gemini-Config-Checker-" target="_blank" style="color:#0969da;text-decoration:none">VortexHostFeel/Gemini-Config-Checker-</a></td><td>刷星投放</td><td>★472</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/WingDataVacuum/Gemini-Config-Checker-" target="_blank" style="color:#0969da;text-decoration:none">WingDataVacuum/Gemini-Config-Checker-</a></td><td>刷星投放</td><td>★472</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/TypeTyrantScheme/Gemini-Config-Checker-" target="_blank" style="color:#0969da;text-decoration:none">TypeTyrantScheme/Gemini-Config-Checker-</a></td><td>刷星投放</td><td>★472</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/WireProvostPucker/Gemini-Config-Checker-" target="_blank" style="color:#0969da;text-decoration:none">WireProvostPucker/Gemini-Config-Checker-</a></td><td>刷星投放</td><td>★472</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/VisionWormStudio/Gemini-Config-Checker-" target="_blank" style="color:#0969da;text-decoration:none">VisionWormStudio/Gemini-Config-Checker-</a></td><td>刷星投放</td><td>★472</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/WestLocksmithSpout/Gemini-Config-Checker-" target="_blank" style="color:#0969da;text-decoration:none">WestLocksmithSpout/Gemini-Config-Checker-</a></td><td>刷星投放</td><td>★472</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/WharfBoulderColander/Gemini-Config-Checker-" target="_blank" style="color:#0969da;text-decoration:none">WharfBoulderColander/Gemini-Config-Checker-</a></td><td>刷星投放</td><td>★472</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/Visionbeyondtrack/Gemini-Config-Checker-" target="_blank" style="color:#0969da;text-decoration:none">Visionbeyondtrack/Gemini-Config-Checker-</a></td><td>刷星投放</td><td>★472</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/WinnerSpecialist/Gemini-Config-Checker-" target="_blank" style="color:#0969da;text-decoration:none">WinnerSpecialist/Gemini-Config-Checker-</a></td><td>刷星投放</td><td>★472</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/trackersnailgrip/GitHub-Copilot-app" target="_blank" style="color:#0969da;text-decoration:none">trackersnailgrip/GitHub-Copilot-app</a></td><td>刷星投放</td><td>★383</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/tremorbuffalospire/IPTV_Player_2.0" target="_blank" style="color:#0969da;text-decoration:none">tremorbuffalospire/IPTV_Player_2.0</a></td><td>刷星投放</td><td>★381</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/topapothecarycanal/ai--manus2.0" target="_blank" style="color:#0969da;text-decoration:none">topapothecarycanal/ai--manus2.0</a></td><td>刷星投放</td><td>★379</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/toppatronweave/GitHub-Copilot-app" target="_blank" style="color:#0969da;text-decoration:none">toppatronweave/GitHub-Copilot-app</a></td><td>刷星投放</td><td>★379</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/toppatronweave/ai--manus2.0" target="_blank" style="color:#0969da;text-decoration:none">toppatronweave/ai--manus2.0</a></td><td>刷星投放</td><td>★377</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/TrapBladesmith/GitHub-Copilot-app" target="_blank" style="color:#0969da;text-decoration:none">TrapBladesmith/GitHub-Copilot-app</a></td><td>刷星投放</td><td>★377</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/TarantulaCorrect/GitHub-Copilot-app" target="_blank" style="color:#0969da;text-decoration:none">TarantulaCorrect/GitHub-Copilot-app</a></td><td>刷星投放</td><td>★376</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/TurquoiseConsultant/GitHub-Copilot-app" target="_blank" style="color:#0969da;text-decoration:none">TurquoiseConsultant/GitHub-Copilot-app</a></td><td>刷星投放</td><td>★376</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/topconstableinlet67/ai--manus2.0" target="_blank" style="color:#0969da;text-decoration:none">topconstableinlet67/ai--manus2.0</a></td><td>刷星投放</td><td>★376</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/TorrentArrow/IPTV_Player_2.0" target="_blank" style="color:#0969da;text-decoration:none">TorrentArrow/IPTV_Player_2.0</a></td><td>刷星投放</td><td>★375</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/topconstableinlet67/GitHub-Copilot-app" target="_blank" style="color:#0969da;text-decoration:none">topconstableinlet67/GitHub-Copilot-app</a></td><td>刷星投放</td><td>★373</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/Trapkrostride/GitHub-Copilot-app" target="_blank" style="color:#0969da;text-decoration:none">Trapkrostride/GitHub-Copilot-app</a></td><td>刷星投放</td><td>★373</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/violetkomodolimit/ai--manus2.0" target="_blank" style="color:#0969da;text-decoration:none">violetkomodolimit/ai--manus2.0</a></td><td>刷星投放</td><td>★373</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/trackersnailgrip/ai--manus2.0" target="_blank" style="color:#0969da;text-decoration:none">trackersnailgrip/ai--manus2.0</a></td><td>刷星投放</td><td>★371</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/taboospecialistblade/ai--manus2.0" target="_blank" style="color:#0969da;text-decoration:none">taboospecialistblade/ai--manus2.0</a></td><td>刷星投放</td><td>★369</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/Ultimateakiln/ai--manus2.0" target="_blank" style="color:#0969da;text-decoration:none">Ultimateakiln/ai--manus2.0</a></td><td>刷星投放</td><td>★369</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/TrapBladesmith/ai--manus2.0" target="_blank" style="color:#0969da;text-decoration:none">TrapBladesmith/ai--manus2.0</a></td><td>刷星投放</td><td>★368</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/Tonephorepair/ai--manus2.0" target="_blank" style="color:#0969da;text-decoration:none">Tonephorepair/ai--manus2.0</a></td><td>刷星投放</td><td>★368</td><td style="text-align:left;color:#8b949e;font-size:12px">同一段描述被多个仓库复用，且 fork 极低——典型批量刷星引流</td></tr><tr><td style="text-align:left"><a href="https://github.com/diego3g/craft" target="_blank" style="color:#0969da;text-decoration:none">diego3g/craft</a></td><td>提示词包</td><td>★281</td><td style="text-align:left;color:#8b949e;font-size:12px">纯提示词/技能包，无工程实现，质量取决于写作而非代码（命中：skills for）</td></tr><tr><td style="text-align:left"><a href="https://github.com/fujc683/seedance-2-5-flash-pricing" target="_blank" style="color:#0969da;text-decoration:none">fujc683/seedance-2-5-flash-pricing</a></td><td>资源合集</td><td>★216</td><td style="text-align:left;color:#8b949e;font-size:12px">清单/合集类，价值在索引而非代码，属于二次整理搬运（命中：awesome、tutorial）</td></tr>
+  </table>
+  <div class="note warn">⚠️ <b>这一节是本报告最该看的部分。</b>
+    本期新星榜里出现了多个<b>描述完全相同、fork 为 0</b> 的仓库（39 个），
+    这是典型的批量刷星引流手法：同一套代码/文案换壳发布，靠搜索排名导流。
+    如果只看「star 榜」做选题，很容易把它们当成真趋势去讲。</div>
+</section>
+
+<section>
+  <h2><span class="num">2</span>赛道：钱和注意力在往哪走</h2>
+  <div class="desc">括号内是本期该赛道的项目数，柱长是<b>该赛道星速中位数</b>（每天涨多少星）。用中位数而非总和，避免单个爆款拉偏整个赛道。</div>
+  <div class="chart"><svg width="700" height="385" viewBox="0 0 700 385" style="max-width:100%"><g transform="translate(0,0)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#24292f">AI Agent 与自动化（29）</text><rect x="180" y="4" width="170" height="18" rx="3" fill="#2da44e"/><text x="357" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#57606a">119.0 星/天</text></g><g transform="translate(0,35)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#24292f">未归类（23）</text><rect x="180" y="4" width="270" height="18" rx="3" fill="#2da44e"/><text x="457" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#57606a">188.6 星/天</text></g><g transform="translate(0,70)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#24292f">桌面与效率应用（20）</text><rect x="180" y="4" width="149" height="18" rx="3" fill="#2da44e"/><text x="336" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#57606a">104.1 星/天</text></g><g transform="translate(0,105)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#24292f">大模型工具链（18）</text><rect x="180" y="4" width="219" height="18" rx="3" fill="#2da44e"/><text x="406" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#57606a">152.9 星/天</text></g><g transform="translate(0,140)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#24292f">系统与底层（18）</text><rect x="180" y="4" width="289" height="18" rx="3" fill="#2da44e"/><text x="476" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#57606a">201.7 星/天</text></g><g transform="translate(0,175)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#24292f">开发工具与编辑器（16）</text><rect x="180" y="4" width="322" height="18" rx="3" fill="#2da44e"/><text x="509" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#57606a">225.1 星/天</text></g><g transform="translate(0,210)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#24292f">前端与界面（14）</text><rect x="180" y="4" width="198" height="18" rx="3" fill="#2da44e"/><text x="385" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#57606a">138.6 星/天</text></g><g transform="translate(0,245)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#24292f">安全与逆向（6）</text><rect x="180" y="4" width="470" height="18" rx="3" fill="#2da44e"/><text x="657" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#57606a">328.2 星/天</text></g><g transform="translate(0,280)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#24292f">平台与基础设施（5）</text><rect x="180" y="4" width="125" height="18" rx="3" fill="#2da44e"/><text x="312" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#57606a">87.0 星/天</text></g><g transform="translate(0,315)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#24292f">AI 生成内容（4）</text><rect x="180" y="4" width="123" height="18" rx="3" fill="#2da44e"/><text x="310" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#57606a">85.8 星/天</text></g><g transform="translate(0,350)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#24292f">数据与检索（1）</text><rect x="180" y="4" width="107" height="18" rx="3" fill="#2da44e"/><text x="294" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#57606a">74.9 星/天</text></g></svg></div>
+  <div class="note">💡 <b>怎么用：</b>赛道柱长代表「同样的项目质量，放在这个赛道能多拿多少关注」。
+    柱长明显高于全局中位（143 星/天）的赛道，说明当下有系统性红利——
+    这时候做该赛道的解读内容，天然比冷门赛道更容易被算法推。</div>
+</section>
+
+<section>
+  <h2><span class="num">3</span>逐项目拆解：本期最该看的 12 个</h2>
+  <div class="desc">前 6 个来自「近 7 天新建」（按星数），后 6 个来自「8–30 天」（按星速，排除已经跑完的）。每个都读了 README 判断实现方式，不是照抄描述。</div>
+  
+<div class="pcard">
+  <div class="phead">
+    <span class="pidx">01</span>
+    <div style="flex:1">
+      <a class="pname" href="https://github.com/erkamyaman/rust-anything" target="_blank">erkamyaman/rust-anything</a>
+      <div class="pdesc">Rewrite your whole app in Rust, one piece at a time, checked against the original's recorded behavior at every step. CLIs, HTTP servers and libraries in TypeScript, Python, C, Go, Ruby and Java.</div>
+    </div>
+  </div>
+  <div class="pmeta">
+    <span class="pill p-track">开发工具与编辑器</span>
+    <span class="pill p-lang">Rust</span>
+    <span class="pill p-stat">★ 5,886 · ⑂ 468 · 建仓 4 天</span>
+    <span class="pill p-v">星速 1472/天</span>
+    <span class="verdict mid">看思路</span>
+  </div>
+  <div class="pblock">
+    <div class="plabel">技术路线（读 README 得出，不是猜）</div>
+    <ul class="plist"><li>技术栈：Kotlin/Android</li></ul>
+  </div>
+  <div class="pgrid">
+    <div>
+      <div class="plabel">为什么现在火</div>
+      <ul class="plist"><li>个体异常：星速 1472/天，是同赛道中位的 6.5 倍，说明它抓住了具体痛点，而不是靠赛道整体上涨</li></ul>
+    </div>
+    <div>
+      <div class="plabel">这条赛道的判断点</div>
+      <ul class="plist"><li>能否复用现有配置（插件/快捷键/主题）</li><li>启动速度与内存占用是否真的更优</li><li>生态缺口有多大（插件数量、语言支持）</li></ul>
+    </div>
+  </div>
+  <div class="pfoot">
+    <div class="plabel">成熟度 47 分 · 结论：看思路 —— 有真实现但成熟度一般，值得读代码而非直接依赖</div>
+    <div class="bits"><span class="bit">真实使用度 +16 · fork/star = 0.080</span><span class="bit">工程完整度 +0 · 安装方式：README 未写明</span><span class="bit">许可证 +20 · MIT</span><span class="bit">产品化程度 +11 · 有主页/平台说明</span></div>
+  </div>
+</div>
+<div class="pcard">
+  <div class="phead">
+    <span class="pidx">02</span>
+    <div style="flex:1">
+      <a class="pname" href="https://github.com/krisgfx9/Wireless-Device-Battery-Monitor" target="_blank">krisgfx9/Wireless-Device-Battery-Monitor</a>
+      <div class="pdesc">Show the battery level of wireless mice, headsets, keyboards and controllers on the Windows 10/11 taskbar. Lightweight tray app, no vendor software needed. Supports Logitech, Razer, SteelSeries, Corsair, HyperX, Glorious, PS4/PS5 DualSense, Xbox and Bluetooth devices.</div>
+    </div>
+  </div>
+  <div class="pmeta">
+    <span class="pill p-track">桌面与效率应用</span>
+    <span class="pill p-lang">C++</span>
+    <span class="pill p-stat">★ 4,917 · ⑂ 415 · 建仓 4 天</span>
+    <span class="pill p-v">星速 1229/天</span>
+    <span class="verdict warn">谨慎</span>
+  </div>
+  <div class="pblock">
+    <div class="plabel">技术路线（读 README 得出，不是猜）</div>
+    <ul class="plist"><li>平台：Windows</li></ul>
+  </div>
+  <div class="pgrid">
+    <div>
+      <div class="plabel">为什么现在火</div>
+      <ul class="plist"><li>个体异常：星速 1229/天，是同赛道中位的 11.8 倍，说明它抓住了具体痛点，而不是靠赛道整体上涨</li></ul>
+    </div>
+    <div>
+      <div class="plabel">这条赛道的判断点</div>
+      <ul class="plist"><li>安装与签名成本（是否要关 SIP / 装驱动）</li><li>跨平台一致性</li><li>数据是否本地存储（隐私）</li></ul>
+    </div>
+  </div>
+  <div class="pfoot">
+    <div class="plabel">成熟度 32 分 · 结论：谨慎 —— 信号不足，先观察或只看设计取向</div>
+    <div class="bits"><span class="bit">真实使用度 +16 · fork/star = 0.084</span><span class="bit">工程完整度 +0 · 安装方式：README 未写明</span><span class="bit">许可证 +12 · GPL-3.0</span><span class="bit">产品化程度 +4 · 有主页/平台说明</span></div>
+  </div>
+</div>
+<div class="pcard">
+  <div class="phead">
+    <span class="pidx">03</span>
+    <div style="flex:1">
+      <a class="pname" href="https://github.com/gylive/google-ultra" target="_blank">gylive/google-ultra</a>
+      <div class="pdesc">（无描述）</div>
+    </div>
+  </div>
+  <div class="pmeta">
+    <span class="pill p-track">未归类</span>
+    <span class="pill p-lang">Python</span>
+    <span class="pill p-stat">★ 2,499 · ⑂ 51 · 建仓 3 天</span>
+    <span class="pill p-v">星速 833/天</span>
+    <span class="verdict mid">看思路</span>
+  </div>
+  <div class="pblock">
+    <div class="plabel">技术路线（读 README 得出，不是猜）</div>
+    <ul class="plist"><li>技术栈：Kotlin/Android</li><li>安装：`brew`</li><li>平台：Windows、Android</li></ul>
+  </div>
+  <div class="pgrid">
+    <div>
+      <div class="plabel">为什么现在火</div>
+      <ul class="plist"><li>个体异常：星速 833/天，是同赛道中位的 4.4 倍，说明它抓住了具体痛点，而不是靠赛道整体上涨</li><li>移动端稀缺：桌面工具多、手机端同等能力少，天然有需求缺口</li></ul>
+    </div>
+    <div>
+      <div class="plabel">这条赛道的判断点</div>
+      <ul class="plist"><li>该赛道暂无固定判断框架，需人工看代码</li></ul>
+    </div>
+  </div>
+  <div class="pfoot">
+    <div class="plabel">成熟度 48 分 · 结论：看思路 —— 有真实现但成熟度一般，值得读代码而非直接依赖</div>
+    <div class="bits"><span class="bit">真实使用度 +8 · fork/star = 0.020</span><span class="bit">工程完整度 +13 · 安装方式：brew</span><span class="bit">许可证 +20 · MIT</span><span class="bit">产品化程度 +7 · 有主页/平台说明</span></div>
+  </div>
+</div>
+<div class="pcard">
+  <div class="phead">
+    <span class="pidx">04</span>
+    <div style="flex:1">
+      <a class="pname" href="https://github.com/Hut-hzf/ung220z-tool" target="_blank">Hut-hzf/ung220z-tool</a>
+      <div class="pdesc">ung220z-tool 是一个针对 UNG220Z（九联/Unionman 中国移动光猫）的一键凭据提取工具，仅限在你自己的设备上用于找回忘记的管理密码、迁移宽带配置或安全自查。</div>
+    </div>
+  </div>
+  <div class="pmeta">
+    <span class="pill p-track">安全与逆向</span>
+    <span class="pill p-lang">Python</span>
+    <span class="pill p-stat">★ 1,886 · ⑂ 432 · 建仓 5 天</span>
+    <span class="pill p-v">星速 377/天</span>
+    <span class="verdict mid">看思路</span>
+  </div>
+  <div class="pblock">
+    <div class="plabel">技术路线（读 README 得出，不是猜）</div>
+    <ul class="plist"><li>README 未提供足够技术线索（可能非代码型仓库，或 README 抓取失败）</li></ul>
+  </div>
+  <div class="pgrid">
+    <div>
+      <div class="plabel">为什么现在火</div>
+      <ul class="plist"><li>赛道风口：安全与逆向 本期整体吸星效率是全局的 2.3 倍，它顺势而起</li></ul>
+    </div>
+    <div>
+      <div class="plabel">这条赛道的判断点</div>
+      <ul class="plist"><li>技术手法是否可复现、有没有写清影响范围</li><li>是否已通知厂商/是否在野利用</li><li>使用是否触碰法律红线（授权、越权）</li></ul>
+    </div>
+  </div>
+  <div class="pfoot">
+    <div class="plabel">成熟度 50 分 · 结论：看思路 —— 有真实现但成熟度一般，值得读代码而非直接依赖</div>
+    <div class="bits"><span class="bit">真实使用度 +24 · fork/star = 0.229</span><span class="bit">工程完整度 +6 · 安装方式：README 未写明</span><span class="bit">许可证 +20 · MIT</span><span class="bit">产品化程度 +0 · 无主页</span></div>
+  </div>
+</div>
+<div class="pcard">
+  <div class="phead">
+    <span class="pidx">05</span>
+    <div style="flex:1">
+      <a class="pname" href="https://github.com/CzzzzzzJ/mdldm-maitian" target="_blank">CzzzzzzJ/mdldm-maitian</a>
+      <div class="pdesc">麦田：自媒体多平台发布中控与数据监控（B站/抖音/小红书/视频号/YouTube/X），飞书卡片通知 + 数据大屏</div>
+    </div>
+  </div>
+  <div class="pmeta">
+    <span class="pill p-track">AI Agent 与自动化</span>
+    <span class="pill p-lang">JavaScript</span>
+    <span class="pill p-stat">★ 1,678 · ⑂ 491 · 建仓 6 天</span>
+    <span class="pill p-v">星速 280/天</span>
+    <span class="verdict ok">可直接用</span>
+  </div>
+  <div class="pblock">
+    <div class="plabel">技术路线（读 README 得出，不是猜）</div>
+    <ul class="plist"><li>平台：macOS、Windows</li></ul>
+  </div>
+  <div class="pgrid">
+    <div>
+      <div class="plabel">为什么现在火</div>
+      <ul class="plist"><li>个体异常：星速 280/天，是同赛道中位的 2.3 倍，说明它抓住了具体痛点，而不是靠赛道整体上涨</li></ul>
+    </div>
+    <div>
+      <div class="plabel">这条赛道的判断点</div>
+      <ul class="plist"><li>是否有持久化状态/断点恢复（不是每轮重来）</li><li>工具调用是否沙箱化、权限是否可收敛</li><li>长任务成功率有没有实测数据，而不是 demo 视频</li></ul>
+    </div>
+  </div>
+  <div class="pfoot">
+    <div class="plabel">成熟度 68 分 · 结论：可直接用 —— 工程师信号齐全，建议直接跑一遍验证</div>
+    <div class="bits"><span class="bit">真实使用度 +30 · fork/star = 0.293</span><span class="bit">工程完整度 +6 · 安装方式：README 未写明</span><span class="bit">许可证 +20 · MIT</span><span class="bit">产品化程度 +12 · 有主页/平台说明</span></div>
+  </div>
+</div>
+<div class="pcard">
+  <div class="phead">
+    <span class="pidx">06</span>
+    <div style="flex:1">
+      <a class="pname" href="https://github.com/duwqijlk/muse-protocol" target="_blank">duwqijlk/muse-protocol</a>
+      <div class="pdesc">muse.ai 注册与邀请码兑换协议研究（纯 HTTP Python 实现）</div>
+    </div>
+  </div>
+  <div class="pmeta">
+    <span class="pill p-track">安全与逆向</span>
+    <span class="pill p-lang">Python</span>
+    <span class="pill p-stat">★ 1,675 · ⑂ 660 · 建仓 6 天</span>
+    <span class="pill p-v">星速 279/天</span>
+    <span class="verdict mid">看思路</span>
+  </div>
+  <div class="pblock">
+    <div class="plabel">技术路线（读 README 得出，不是猜）</div>
+    <ul class="plist"><li>安装：`pip`</li></ul>
+  </div>
+  <div class="pgrid">
+    <div>
+      <div class="plabel">为什么现在火</div>
+      <ul class="plist"><li>赛道风口：安全与逆向 本期整体吸星效率是全局的 2.3 倍，它顺势而起</li></ul>
+    </div>
+    <div>
+      <div class="plabel">这条赛道的判断点</div>
+      <ul class="plist"><li>技术手法是否可复现、有没有写清影响范围</li><li>是否已通知厂商/是否在野利用</li><li>使用是否触碰法律红线（授权、越权）</li></ul>
+    </div>
+  </div>
+  <div class="pfoot">
+    <div class="plabel">成熟度 55 分 · 结论：看思路 —— 有真实现但成熟度一般，值得读代码而非直接依赖</div>
+    <div class="bits"><span class="bit">真实使用度 +30 · fork/star = 0.394</span><span class="bit">工程完整度 +13 · 安装方式：pip</span><span class="bit">许可证 +12 · NOASSERTION</span><span class="bit">产品化程度 +0 · 无主页</span></div>
+  </div>
+</div>
+<div class="pcard">
+  <div class="phead">
+    <span class="pidx">07</span>
+    <div style="flex:1">
+      <a class="pname" href="https://github.com/storytold/craft-anything" target="_blank">storytold/craft-anything</a>
+      <div class="pdesc">Craft Anything: understand how any software works, and craft your own.</div>
+    </div>
+  </div>
+  <div class="pmeta">
+    <span class="pill p-track">开发工具与编辑器</span>
+    <span class="pill p-lang">Rust</span>
+    <span class="pill p-stat">★ 39,024 · ⑂ 7,774 · 建仓 20 天</span>
+    <span class="pill p-v">星速 1951/天</span>
+    <span class="verdict mid">看思路</span>
+  </div>
+  <div class="pblock">
+    <div class="plabel">技术路线（读 README 得出，不是猜）</div>
+    <ul class="plist"><li>继承关系：README 出现「clean-room」</li><li>平台：macOS、Windows、Linux</li></ul>
+  </div>
+  <div class="pgrid">
+    <div>
+      <div class="plabel">为什么现在火</div>
+      <ul class="plist"><li>个体异常：星速 1951/天，是同赛道中位的 8.7 倍，说明它抓住了具体痛点，而不是靠赛道整体上涨</li></ul>
+    </div>
+    <div>
+      <div class="plabel">这条赛道的判断点</div>
+      <ul class="plist"><li>能否复用现有配置（插件/快捷键/主题）</li><li>启动速度与内存占用是否真的更优</li><li>生态缺口有多大（插件数量、语言支持）</li></ul>
+    </div>
+  </div>
+  <div class="pfoot">
+    <div class="plabel">成熟度 48 分 · 结论：看思路 —— 有真实现但成熟度一般，值得读代码而非直接依赖</div>
+    <div class="bits"><span class="bit">真实使用度 +24 · fork/star = 0.199</span><span class="bit">工程完整度 +0 · 安装方式：README 未写明</span><span class="bit">许可证 +20 · Apache-2.0</span><span class="bit">产品化程度 +4 · 有主页/平台说明</span></div>
+  </div>
+</div>
+<div class="pcard">
+  <div class="phead">
+    <span class="pidx">08</span>
+    <div style="flex:1">
+      <a class="pname" href="https://github.com/deepseek-ai/dsh-superagent-prototype" target="_blank">deepseek-ai/dsh-superagent-prototype</a>
+      <div class="pdesc">Towards a More Autonomous Agent System</div>
+    </div>
+  </div>
+  <div class="pmeta">
+    <span class="pill p-track">AI Agent 与自动化</span>
+    <span class="pill p-lang">TypeScript</span>
+    <span class="pill p-stat">★ 24,030 · ⑂ 2,983 · 建仓 20 天</span>
+    <span class="pill p-v">星速 1202/天</span>
+    <span class="verdict warn">谨慎</span>
+  </div>
+  <div class="pblock">
+    <div class="plabel">技术路线（读 README 得出，不是猜）</div>
+    <ul class="plist"><li>README 未提供足够技术线索（可能非代码型仓库，或 README 抓取失败）</li></ul>
+  </div>
+  <div class="pgrid">
+    <div>
+      <div class="plabel">为什么现在火</div>
+      <ul class="plist"><li>个体异常：星速 1202/天，是同赛道中位的 10.1 倍，说明它抓住了具体痛点，而不是靠赛道整体上涨</li></ul>
+    </div>
+    <div>
+      <div class="plabel">这条赛道的判断点</div>
+      <ul class="plist"><li>是否有持久化状态/断点恢复（不是每轮重来）</li><li>工具调用是否沙箱化、权限是否可收敛</li><li>长任务成功率有没有实测数据，而不是 demo 视频</li></ul>
+    </div>
+  </div>
+  <div class="pfoot">
+    <div class="plabel">成熟度 44 分 · 结论：谨慎 —— 信号不足，先观察或只看设计取向</div>
+    <div class="bits"><span class="bit">真实使用度 +24 · fork/star = 0.124</span><span class="bit">工程完整度 +0 · 安装方式：README 未写明</span><span class="bit">许可证 +20 · MIT</span><span class="bit">产品化程度 +0 · 无主页</span></div>
+  </div>
+</div>
+<div class="pcard">
+  <div class="phead">
+    <span class="pidx">09</span>
+    <div style="flex:1">
+      <a class="pname" href="https://github.com/ccch1mneyyy/dsh-Go" target="_blank">ccch1mneyyy/dsh-Go</a>
+      <div class="pdesc">dsh-go — DeepSeek Harness 装进口袋：手机本机运行，也能遥控你的电脑。</div>
+    </div>
+  </div>
+  <div class="pmeta">
+    <span class="pill p-track">大模型工具链</span>
+    <span class="pill p-lang">Dart</span>
+    <span class="pill p-stat">★ 28,670 · ⑂ 1,368 · 建仓 26 天</span>
+    <span class="pill p-v">星速 1103/天</span>
+    <span class="verdict warn">谨慎</span>
+  </div>
+  <div class="pblock">
+    <div class="plabel">技术路线（读 README 得出，不是猜）</div>
+    <ul class="plist"><li>平台：iOS、Android</li></ul>
+  </div>
+  <div class="pgrid">
+    <div>
+      <div class="plabel">为什么现在火</div>
+      <ul class="plist"><li>个体异常：星速 1103/天，是同赛道中位的 7.2 倍，说明它抓住了具体痛点，而不是靠赛道整体上涨</li><li>移动端稀缺：桌面工具多、手机端同等能力少，天然有需求缺口</li></ul>
+    </div>
+    <div>
+      <div class="plabel">这条赛道的判断点</div>
+      <ul class="plist"><li>优化发生在哪一层（kernel / 调度 / 显存 / 批处理）</li><li>对比基线是谁，测试负载是什么</li><li>是否依赖特定硬件或驱动版本</li></ul>
+    </div>
+  </div>
+  <div class="pfoot">
+    <div class="plabel">成熟度 24 分 · 结论：谨慎 —— 信号不足，先观察或只看设计取向</div>
+    <div class="bits"><span class="bit">真实使用度 +8 · fork/star = 0.048</span><span class="bit">工程完整度 +0 · 安装方式：README 未写明</span><span class="bit">许可证 +12 · AGPL-3.0</span><span class="bit">产品化程度 +4 · 有主页/平台说明</span></div>
+  </div>
+</div>
+<div class="pcard">
+  <div class="phead">
+    <span class="pidx">10</span>
+    <div style="flex:1">
+      <a class="pname" href="https://github.com/heydamir/unslop" target="_blank">heydamir/unslop</a>
+      <div class="pdesc">A Claude skill that turns vibecoded, AI-looking UI into a designed interface</div>
+    </div>
+  </div>
+  <div class="pmeta">
+    <span class="pill p-track">前端与界面</span>
+    <span class="pill p-lang">JavaScript</span>
+    <span class="pill p-stat">★ 18,909 · ⑂ 1,134 · 建仓 22 天</span>
+    <span class="pill p-v">星速 860/天</span>
+    <span class="verdict warn">谨慎</span>
+  </div>
+  <div class="pblock">
+    <div class="plabel">技术路线（读 README 得出，不是猜）</div>
+    <ul class="plist"><li>安装：`npm`</li></ul>
+  </div>
+  <div class="pgrid">
+    <div>
+      <div class="plabel">为什么现在火</div>
+      <ul class="plist"><li>个体异常：星速 860/天，是同赛道中位的 6.2 倍，说明它抓住了具体痛点，而不是靠赛道整体上涨</li></ul>
+    </div>
+    <div>
+      <div class="plabel">这条赛道的判断点</div>
+      <ul class="plist"><li>是否零依赖/低侵入，能否单独摘出来用</li><li>无障碍与键盘操作是否覆盖</li><li>包体积与运行时开销</li></ul>
+    </div>
+  </div>
+  <div class="pfoot">
+    <div class="plabel">成熟度 41 分 · 结论：谨慎 —— 信号不足，先观察或只看设计取向</div>
+    <div class="bits"><span class="bit">真实使用度 +16 · fork/star = 0.060</span><span class="bit">工程完整度 +13 · 安装方式：npm</span><span class="bit">许可证 +12 · CC-BY-4.0</span><span class="bit">产品化程度 +0 · 无主页</span></div>
+  </div>
+</div>
+<div class="pcard">
+  <div class="phead">
+    <span class="pidx">11</span>
+    <div style="flex:1">
+      <a class="pname" href="https://github.com/huami1314/GestaltX" target="_blank">huami1314/GestaltX</a>
+      <div class="pdesc">An MobileGestalt editor for iOS 27.x, featuring region-code tweaks, device presets, backups.</div>
+    </div>
+  </div>
+  <div class="pmeta">
+    <span class="pill p-track">开发工具与编辑器</span>
+    <span class="pill p-lang">Swift</span>
+    <span class="pill p-stat">★ 8,604 · ⑂ 2,743 · 建仓 11 天</span>
+    <span class="pill p-v">星速 782/天</span>
+    <span class="verdict warn">谨慎</span>
+  </div>
+  <div class="pblock">
+    <div class="plabel">技术路线（读 README 得出，不是猜）</div>
+    <ul class="plist"><li>README 未提供足够技术线索（可能非代码型仓库，或 README 抓取失败）</li></ul>
+  </div>
+  <div class="pgrid">
+    <div>
+      <div class="plabel">为什么现在火</div>
+      <ul class="plist"><li>个体异常：星速 782/天，是同赛道中位的 3.5 倍，说明它抓住了具体痛点，而不是靠赛道整体上涨</li></ul>
+    </div>
+    <div>
+      <div class="plabel">这条赛道的判断点</div>
+      <ul class="plist"><li>能否复用现有配置（插件/快捷键/主题）</li><li>启动速度与内存占用是否真的更优</li><li>生态缺口有多大（插件数量、语言支持）</li></ul>
+    </div>
+  </div>
+  <div class="pfoot">
+    <div class="plabel">成熟度 42 分 · 结论：谨慎 —— 信号不足，先观察或只看设计取向</div>
+    <div class="bits"><span class="bit">真实使用度 +30 · fork/star = 0.319</span><span class="bit">工程完整度 +0 · 安装方式：README 未写明</span><span class="bit">许可证 +12 · GPL-3.0</span><span class="bit">产品化程度 +0 · 无主页</span></div>
+  </div>
+</div>
+<div class="pcard">
+  <div class="phead">
+    <span class="pidx">12</span>
+    <div style="flex:1">
+      <a class="pname" href="https://github.com/anefzaoui/misterdownloadmanager" target="_blank">anefzaoui/misterdownloadmanager</a>
+      <div class="pdesc">misterdownloadmanager: The ultimate open-source, clean-room download manager written from scratch in pure Rust for Windows, Mac, and Linux</div>
+    </div>
+  </div>
+  <div class="pmeta">
+    <span class="pill p-track">桌面与效率应用</span>
+    <span class="pill p-lang">Rust</span>
+    <span class="pill p-stat">★ 14,039 · ⑂ 1,234 · 建仓 22 天</span>
+    <span class="pill p-v">星速 638/天</span>
+    <span class="verdict warn">谨慎</span>
+  </div>
+  <div class="pblock">
+    <div class="plabel">技术路线（读 README 得出，不是猜）</div>
+    <ul class="plist"><li>平台：macOS、Windows、Linux</li></ul>
+  </div>
+  <div class="pgrid">
+    <div>
+      <div class="plabel">为什么现在火</div>
+      <ul class="plist"><li>个体异常：星速 638/天，是同赛道中位的 6.1 倍，说明它抓住了具体痛点，而不是靠赛道整体上涨</li></ul>
+    </div>
+    <div>
+      <div class="plabel">这条赛道的判断点</div>
+      <ul class="plist"><li>安装与签名成本（是否要关 SIP / 装驱动）</li><li>跨平台一致性</li><li>数据是否本地存储（隐私）</li></ul>
+    </div>
+  </div>
+  <div class="pfoot">
+    <div class="plabel">成熟度 40 分 · 结论：谨慎 —— 信号不足，先观察或只看设计取向</div>
+    <div class="bits"><span class="bit">真实使用度 +16 · fork/star = 0.088</span><span class="bit">工程完整度 +0 · 安装方式：README 未写明</span><span class="bit">许可证 +12 · GPL-3.0</span><span class="bit">产品化程度 +12 · 有主页/平台说明</span></div>
+  </div>
+</div>
+</section>
+
+<section>
+  <h2><span class="num">4</span>技术栈分布</h2>
+  <div class="desc">主语言统计（剔杂后）。注意：语言数不等于项目数——有 7 个项目没有主语言，多为纯文档/配置类。</div>
+  <div class="chart"><svg width="700" height="350" viewBox="0 0 700 350" style="max-width:100%"><g transform="translate(0,0)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#24292f">Python</text><rect x="180" y="4" width="470" height="18" rx="3" fill="#0969da"/><text x="657" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#57606a">42 个</text></g><g transform="translate(0,35)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#24292f">Rust</text><rect x="180" y="4" width="213" height="18" rx="3" fill="#0969da"/><text x="400" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#57606a">19 个</text></g><g transform="translate(0,70)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#24292f">TypeScript</text><rect x="180" y="4" width="213" height="18" rx="3" fill="#0969da"/><text x="400" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#57606a">19 个</text></g><g transform="translate(0,105)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#24292f">JavaScript</text><rect x="180" y="4" width="190" height="18" rx="3" fill="#0969da"/><text x="377" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#57606a">17 个</text></g><g transform="translate(0,140)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#24292f">C++</text><rect x="180" y="4" width="101" height="18" rx="3" fill="#0969da"/><text x="288" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#57606a">9 个</text></g><g transform="translate(0,175)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#24292f">Swift</text><rect x="180" y="4" width="101" height="18" rx="3" fill="#0969da"/><text x="288" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#57606a">9 个</text></g><g transform="translate(0,210)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#24292f">HTML</text><rect x="180" y="4" width="90" height="18" rx="3" fill="#0969da"/><text x="277" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#57606a">8 个</text></g><g transform="translate(0,245)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#24292f">无主语言</text><rect x="180" y="4" width="78" height="18" rx="3" fill="#0969da"/><text x="265" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#57606a">7 个</text></g><g transform="translate(0,280)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#24292f">Kotlin</text><rect x="180" y="4" width="67" height="18" rx="3" fill="#0969da"/><text x="254" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#57606a">6 个</text></g><g transform="translate(0,315)"><text x="0" y="13.0" dominant-baseline="middle" font-size="12.5" fill="#24292f">C</text><rect x="180" y="4" width="67" height="18" rx="3" fill="#0969da"/><text x="254" y="13.0" dominant-baseline="middle" font-size="11.5" fill="#57606a">6 个</text></g></svg></div>
+  <div class="note">💡 <b>读法：</b>Rust 占比 12%（19 个），中位星速 110/天，
+    低于全局中位 143。
+    说明 Rust 项目已经进入常态，不再自带额外流量。</div>
+</section>
+
+<section>
+  <h2><span class="num">5</span>本期趋势判断</h2>
+  <div class="desc">三条结论，每条都给出支撑数据。数据之外的部分标为推断。</div>
+
+  <div class="trend">
+    <h4>① AI 相关项目占 33%，星速是其他项目的 0.7 倍</h4>
+    <p>本期 154 个可分析项目里 51 个属 AI 三条赛道（Agent / 工具链 / 生成内容），
+    中位星速 119/天，非 AI 项目为 169/天。
+    <b>判断：</b>AI 占了约三分之一的供给，是这时期的主要题材；但星速只高出 0.7 倍，
+    说明<b>「沾上 AI 就有人看」的红利已经不明显</b>，接下来拼的是具体问题解决得好不好。
+    <span style="color:#8b949e">（这是单期横截面，只能说明当下结构，不能证明趋势在变；要看变化需连续 3 期以上对比。）</span></p>
+  </div>
+
+  <div class="trend">
+    <h4>② 供给最密集的赛道是「AI Agent 与自动化」，本期 29 个项目</h4>
+    <p>从数量看这是供给最密集的方向，意味着<b>竞争也最激烈</b>：同期有 29 个项目在抢同一批用户的注意力。
+    <b>判断：</b>做内容时，选这个赛道里的「具体问题」而非「整个赛道综述」——综述已经过剩，具体问题还有空间。</p>
+  </div>
+
+  <div class="trend">
+    <h4>③ 本期星速最高：storytold/craft-anything（1951 星/天）</h4>
+    <p>它在 20 天内拿到 39,024 星，属「开发工具与编辑器」赛道，同赛道中位星速仅 225/天。<b>判断：</b>这是个体异常而非赛道整体上涨，说明它命中了一个此前没人做好的具体需求。这类项目最值得拆——<b>它的成功原因就是一条现成的选题</b>。</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">6</span>可用清单：哪些能动手，哪些只能看</h2>
+  <div class="desc">成熟度 = 真实使用度（fork 比）+ 工程完整度（安装方式）+ 许可证 + 产品化 − 风险扣分。满分 100。</div>
+
+  <div style="font-size:12.5px;font-weight:700;color:#1a7f37;margin:14px 0 6px">✅ 可直接用 · 2 个</div>
+  <table>
+    <tr><th style="text-align:left">仓库</th><th style="width:150px">赛道</th><th style="width:70px">成熟度</th><th style="width:90px">语言</th><th style="width:110px">许可证</th><th style="width:80px">星速</th></tr>
+    <tr><td style="text-align:left"><a href="https://github.com/haziqahmedqasmi/PeakCut" target="_blank" style="color:#0969da;text-decoration:none">haziqahmedqasmi/PeakCut</a></td><td>开发工具与编辑器</td><td><b>74</b></td><td>Python</td><td>MIT</td><td>241</td></tr><tr><td style="text-align:left"><a href="https://github.com/CzzzzzzJ/mdldm-maitian" target="_blank" style="color:#0969da;text-decoration:none">CzzzzzzJ/mdldm-maitian</a></td><td>AI Agent 与自动化</td><td><b>68</b></td><td>JavaScript</td><td>MIT</td><td>280</td></tr>
+  </table>
+
+  <div style="font-size:12.5px;font-weight:700;color:#0969da;margin:16px 0 6px">🔍 看思路 · 32 个（读代码比用它更有价值）</div>
+  <table>
+    <tr><th style="text-align:left">仓库</th><th style="width:150px">赛道</th><th style="width:70px">成熟度</th><th style="text-align:left;width:38%">为什么只能看</th></tr>
+    <tr><td style="text-align:left"><a href="https://github.com/storytold/craft-anything" target="_blank" style="color:#0969da;text-decoration:none">storytold/craft-anything</a></td><td>开发工具与编辑器</td><td><b>48</b></td><td style="text-align:left;color:#8b949e;font-size:12px">有真实现但成熟度一般，值得读代码而非直接依赖</td></tr><tr><td style="text-align:left"><a href="https://github.com/erkamyaman/rust-anything" target="_blank" style="color:#0969da;text-decoration:none">erkamyaman/rust-anything</a></td><td>开发工具与编辑器</td><td><b>47</b></td><td style="text-align:left;color:#8b949e;font-size:12px">有真实现但成熟度一般，值得读代码而非直接依赖</td></tr><tr><td style="text-align:left"><a href="https://github.com/gylive/google-ultra" target="_blank" style="color:#0969da;text-decoration:none">gylive/google-ultra</a></td><td>未归类</td><td><b>48</b></td><td style="text-align:left;color:#8b949e;font-size:12px">有真实现但成熟度一般，值得读代码而非直接依赖</td></tr><tr><td style="text-align:left"><a href="https://github.com/libracoder/kiri" target="_blank" style="color:#0969da;text-decoration:none">libracoder/kiri</a></td><td>系统与底层</td><td><b>47</b></td><td style="text-align:left;color:#8b949e;font-size:12px">有真实现但成熟度一般，值得读代码而非直接依赖</td></tr><tr><td style="text-align:left"><a href="https://github.com/deepseek-ai/chat-demo" target="_blank" style="color:#0969da;text-decoration:none">deepseek-ai/chat-demo</a></td><td>未归类</td><td><b>52</b></td><td style="text-align:left;color:#8b949e;font-size:12px">有真实现但成熟度一般，值得读代码而非直接依赖</td></tr><tr><td style="text-align:left"><a href="https://github.com/Minireel/HGhub" target="_blank" style="color:#0969da;text-decoration:none">Minireel/HGhub</a></td><td>桌面与效率应用</td><td><b>57</b></td><td style="text-align:left;color:#8b949e;font-size:12px">有真实现但成熟度一般，值得读代码而非直接依赖</td></tr><tr><td style="text-align:left"><a href="https://github.com/JuneYaooo/rea-video" target="_blank" style="color:#0969da;text-decoration:none">JuneYaooo/rea-video</a></td><td>安全与逆向</td><td><b>58</b></td><td style="text-align:left;color:#8b949e;font-size:12px">有真实现但成熟度一般，值得读代码而非直接依赖</td></tr><tr><td style="text-align:left"><a href="https://github.com/wangzan101/Mika" target="_blank" style="color:#0969da;text-decoration:none">wangzan101/Mika</a></td><td>AI Agent 与自动化</td><td><b>59</b></td><td style="text-align:left;color:#8b949e;font-size:12px">有真实现但成熟度一般，值得读代码而非直接依赖</td></tr>
+  </table>
+
+  <div class="note">💡 <b>判断口径：</b>「可直接用」要求 fork/star ≥ 0.12、README 写明安装方式、许可证宽松——
+    三者缺一就可能踩坑（无 license 的项目商用有法律风险）。
+    「看思路」通常是技术方案精彩但工程未打磨，<b>抄它的设计比依赖它的代码更划算</b>。</div>
+</section>
+
+<section>
+  <h2><span class="num">7</span>给你的行动清单</h2>
+  <ul class="tips">
+    <li><b>先看第 1 节再看榜单：</b>本期有 46 个仓库看着火但没东西，其中 39 个是刷星投放。
+        养成先查 fork 比（< 0.02 基本可疑）的习惯，能避开大部分坑。</li>
+    <li><b>挑一个赛道深耕：</b>本期供给最密集的是「AI Agent 与自动化」，但赛道红利最高的是
+        安全与逆向（中位 328 星/天）。
+        两者不一致时，<b>选红利高的那个做内容，选供给密的那个做工具</b>。</li>
+    <li><b>立刻能上手：</b>haziqahmedqasmi/PeakCut、CzzzzzzJ/mdldm-maitian。
+        这三类都满足「宽松许可 + 有安装文档 + 有人真 fork」，跑一遍不亏。</li>
+    <li><b>做内容的正确姿势：</b>不要报「本周 star 榜前十」，而是选一个项目讲清
+        <b>它解决了什么此前解决不好的问题</b>——本期 storytold/craft-anything 就是现成素材。</li>
+    <li><b>存一份快照：</b>本期数据已存入 <span class="mono">2026-11-20/data/repos_raw.json</span>，
+        下周跑完可以对比赛道星速变化，<b>单期数据只能看热闹，两期以上才能看出趋势</b>。</li>
+  </ul>
+</section>
+
+<section>
+  <h2>方法与局限（必读）</h2>
+  <div style="font-size:13px;color:#57606a">
+    <p style="margin-bottom:8px"><b>数据口径：</b>GitHub Search API，三张榜共 3 次请求：
+    近 7 天新建按 star 排序、8–30 天新建按 star 排序、万星项目近 3 天有推送。
+    <b>注意：</b>GitHub 搜索的 star 排序有滞后，真正「本周暴涨」的项目不一定在榜上，需要用 star-history 类工具补。</p>
+    <p style="margin-bottom:8px"><b>刷星识别：</b>用「描述文本归一化后重复 ≥2 次」判定批量投放，这是启发式规则。
+    高明的刷星会改描述绕过检测，所以<b>本报告不能证明某个项目没刷星，只能标出明显的</b>。</p>
+    <p style="margin-bottom:8px"><b>技术路线判断：</b>来自 README 前 4000 字符的关键词匹配（安装方式、技术栈、继承关系）。
+    README 写得差的项目会被低估，这是数据源本身的偏差，不是项目质量问题——
+    遇到「README 未提供线索」的项目，建议直接看代码。</p>
+    <p style="margin-bottom:8px"><b>成熟度分不是质量分：</b>它衡量「现在拿来用靠不靠谱」，不衡量技术优雅程度。
+    高分意味着工程完备、可依赖；低分可能是早期项目，反而更值得关注设计。</p>
+    <p><b>不做什么：</b>不评价项目作者、不判断商业前景、不推荐在生产环境未经测试地使用任何仓库。</p>
+  </div>
+</section>
+
+<div style="text-align:center;color:#8b949e;font-size:12px;margin-top:28px">
+  由 WorkBuddy 基于 GitHub 公开 API 生成 · 抓取时点 2026-11-20 18:52:40 · 数据快照 2026-11-20/data/
+</div>
+
+</div></body></html>

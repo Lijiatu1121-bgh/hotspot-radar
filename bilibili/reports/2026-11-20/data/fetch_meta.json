@@ -1,0 +1,27 @@
+{
+  "fetched_at": "2026-11-20 18:48:51",
+  "cookie": true,
+  "rank": {
+    "all": {
+      "count": 100,
+      "fresh": true
+    },
+    "game": {
+      "count": 96,
+      "fresh": true
+    },
+    "tech": {
+      "count": 97,
+      "fresh": true
+    },
+    "anime": {
+      "count": 94,
+      "fresh": true
+    },
+    "movie": {
+      "count": 91,
+      "fresh": true
+    }
+  },
+  "pop_ok": 6
+}
